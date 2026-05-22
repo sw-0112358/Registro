@@ -1,0 +1,13 @@
+{
+  "name": "REGISTRO",
+  "short_name": "CNR",
+  "start_url": "/Registro/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icono.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
