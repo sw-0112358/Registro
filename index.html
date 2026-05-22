@@ -391,6 +391,88 @@
     margin-bottom: 1rem;
   }
 
+  /* ── TIPO BADGE en inmuebles ── */
+  .tipo-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 20px;
+    color: #fff;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  /* ── LINKS DE MATRÍCULA ── */
+  .prop-link-section {
+    margin: 0.7rem 0;
+    padding: 0.6rem 0.8rem;
+    border-radius: 5px;
+    background: var(--warm-mid);
+    border-left: 3px solid var(--gold);
+  }
+  .prop-link-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--rule);
+    margin-bottom: 0.4rem;
+  }
+  .mat-link-group { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .mat-link {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    background: var(--ink);
+    color: var(--gold);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background .15s, transform .1s;
+  }
+  .mat-link:hover { background: #3a2a12; transform: translateY(-1px); }
+  .mat-link small { color: #c8b890; font-size: .6rem; display: block; }
+  .mat-link-sm  { font-size: 0.63rem; }
+  .mat-link-seg { background: #3a1a4a; }
+  .mat-link-seg:hover { background: #5a2a6a; }
+  .mat-link-seg small { color: #d4a8e8; }
+
+  .mat-link-inline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--accent);
+    cursor: pointer;
+    margin-left: 0.3rem;
+    transition: background .15s, color .15s;
+    white-space: nowrap;
+  }
+  .mat-link-inline:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .hist-tipo-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  @keyframes highlightPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(196,154,42,0.7), 0 2px 8px var(--shadow); }
+    40%  { box-shadow: 0 0 0 8px rgba(196,154,42,0.15), 0 4px 20px rgba(196,154,42,0.3); }
+    100% { box-shadow: 0 0 0 0 rgba(196,154,42,0), 0 2px 8px var(--shadow); }
+  }
+  .prop-card.highlighted {
+    border-color: var(--gold) !important;
+    animation: highlightPulse 2s ease-out;
+  }
+
   @media(max-width:600px) {
     header { padding: 1.5rem; }
     main { padding: 1rem 1rem 3rem; }
@@ -407,10 +489,10 @@
 </header>
 
 <div class="tabs">
-  <div class="tab active" onclick="showView('timeline')">⏱ Cronología</div>
-  <div class="tab" onclick="showView('inmuebles')">🏘 Inmuebles</div>
-  <div class="tab" onclick="showView('matrix')">📋 Tabla de Actos</div>
-  <div class="tab" onclick="showView('personas')">👥 Personas</div>
+  <div class="tab active" onclick="showView('timeline', this)">⏱ Cronología</div>
+  <div class="tab" onclick="showView('inmuebles', this)">🏘 Inmuebles</div>
+  <div class="tab" onclick="showView('matrix', this)">📋 Tabla de Actos</div>
+  <div class="tab" onclick="showView('personas', this)">👥 Personas</div>
 </div>
 
 <main>
@@ -1302,149 +1384,292 @@ function renderPersonas() {
 }
 
 // ─────────────────────────────────────────────
-//  RENDER INMUEBLES
+//  RENDER INMUEBLES — con interconexión
 // ─────────────────────────────────────────────
-function renderInmuebles() {
-  const props = {
-    '75033563-00000': {
-      nombre: 'Solar "A", Manzana 21',
-      ubicacion: 'Polígono "Solares Tierra Blanca", Hacienda California, Jiquilisco',
-      area: '714 m²',
-      historia: [
-        { yr:'1977', txt:'Adjudicación ISTA → Gabriel Bonilla Iraheta + familia' },
-        { yr:'2007', txt:'Zoila Solano → Hernández Durán + Bonilla de Hdz. (66.67%)' },
-        { yr:'2007', txt:'Rosa Lidya Bonilla → Hernández Durán + Bonilla de Hdz.' },
-        { yr:'2008', txt:'Copropietarios → Zoila Solano de Bonilla' },
-        { yr:'2013', txt:'Zoila Solano → Hernández Durán + Bonilla de Hdz. (50% c/u)' },
-      ]
-    },
-    '75033622-00000': {
-      nombre: 'Porción Lote #192 — 14,000 m²',
-      ubicacion: 'Pol. "B", Hacienda California, Cantón Tierra Blanca',
-      area: '14,000 m² (luego 10,500 m²)',
-      historia: [
-        { yr:'1985', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
-        { yr:'2005', txt:'Herencia → Zoila Solano de Bonilla' },
-        { yr:'2011', txt:'Segregación: 3,500 m² → José Gilberto Guzmán Bermúdez' },
-        { yr:'2014', txt:'Reunión → forma parte de Matrícula 75189732' },
-      ]
-    },
-    '75033625-00000': {
-      nombre: 'Porción Lote #192 — 15,721 m²',
-      ubicacion: 'Pol. "B", Hacienda California, Cantón Tierra Blanca',
-      area: '15,721 m²',
-      historia: [
-        { yr:'1993', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
-        { yr:'2014', txt:'Reunión → forma parte de Matrícula 75189732' },
-      ]
-    },
-    '75033626-00000': {
-      nombre: 'Parte Hacienda California — 1,750 m²',
-      ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
-      area: '1,750 m²',
-      historia: [
-        { yr:'1984', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
-        { yr:'2005', txt:'Herencia → Zoila Solano de Bonilla' },
-      ]
-    },
-    '75033627-00000': {
-      nombre: 'Predio Principal — 70,000 m²',
-      ubicacion: 'Cantón Tierra Blanca, Hacienda California, Jiquilisco',
-      area: '70,000 m²',
-      historia: [
-        { yr:'1986', txt:'José María Parada → Gabriel Bonilla Iraheta (40,000 colones)' },
-        { yr:'2005', txt:'Herencia → Zoila Solano de Bonilla' },
-        { yr:'2014', txt:'Zoila Solano → Noé Abrahán Hernández Durán (USD 4,000)' },
-        { yr:'2017', txt:'Noé Hernández (vía Zoila apoderada) → José Rigoberto Claros Zamora (USD 60,000)' },
-        { yr:'2017', txt:'Claros Zamora → Donación irrevocable → María José Claros Claros (hija)' },
-        { yr:'2020', txt:'María José Claros Claros → Alejandro Escobar Iraheta (USD 60,000)' },
-      ]
-    },
-    '75033628-00000': {
-      nombre: 'Porción 1ª Lote #192 — 14,000 m²',
-      ubicacion: 'Pol. "B", Hacienda California, Jiquilisco',
-      area: '14,000 m²',
-      historia: [
-        { yr:'1983', txt:'Juan Bonilla → Gabriel Bonilla Iraheta' },
-        { yr:'2005', txt:'Herencia → Zoila Solano de Bonilla' },
-        { yr:'2014', txt:'Reunión → forma parte de Matrícula 75189732' },
-      ]
-    },
-    '75033629-00000': {
-      nombre: 'Porción 2ª Lote #192 — 3,500 m²',
-      ubicacion: 'Pol. "B", Hacienda California, Jiquilisco',
-      area: '3,500 m²',
-      historia: [
-        { yr:'1983', txt:'Juan Bonilla → Josefa Bonilla Iraheta' },
-        { yr:'2005', txt:'Herencia → Zoila Solano de Bonilla' },
-        { yr:'2014', txt:'Reunión → forma parte de Matrícula 75189732' },
-      ]
-    },
-    '75076668-00000': {
-      nombre: 'Lote segregado — 4,105.21 m²',
-      ubicacion: 'Segregado de Lote #192, Pol. "B", Hacienda California',
-      area: '4,105.21 m²',
-      historia: [
-        { yr:'2007', txt:'Segregación y venta: Zoila Solano → Barahona Torrez (proindivisión 50%)' },
-        { yr:'2015', txt:'Barahona Torrez → José Edgar Romero Escobar (USD 1,400)' },
-        { yr:'2015', txt:'Romero Escobar → Barahona Torrez (USD 10,000)' },
-      ]
-    },
-    '75189732-00000': {
-      nombre: 'Predio Reunido — 39,615.79 m²',
-      ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California',
-      area: '39,615.79 m² → progresivamente reducido',
-      historia: [
-        { yr:'2014', txt:'Reunión de matrículas → Ana Elsy Bonilla de Hernández (100%)' },
-        { yr:'2017', txt:'Segregación 75211168 (9,526.83 m²) → Juan Francisco Bonilla Solano (USD 1,400)' },
-        { yr:'2017', txt:'Segregación 75216784 (635.87 m²) → Blanca Mirian Cárcamo + José Benjamín Torres (USD 1,300)' },
-        { yr:'2022', txt:'Segregación 75244178 (362.61 m²) → José Mauricio Flores (USD 1,500)' },
-      ]
-    },
-    '75211168-00000': {
-      nombre: 'Segregado de 75189732 — 9,526.83 m²',
-      ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
-      area: '9,526.83 m²',
-      historia: [
-        { yr:'2017', txt:'Segregación de 75189732 → Juan Francisco Bonilla Solano (USD 1,400)' },
-      ]
-    },
-    '75216784-00000': {
-      nombre: 'Segregado de 75189732 — 635.87 m²',
-      ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
-      area: '635.87 m²',
-      historia: [
-        { yr:'2017', txt:'Segregación → Blanca Mirian Cárcamo + José Benjamín Torres (50% c/u, USD 1,300)' },
-        { yr:'2023', txt:'Cárcamo / Torres → María Marlene Torres Cárcamo (USD 10,000)' },
-      ]
-    },
-    '75244178-00000': {
-      nombre: 'Segregado de 75189732 — 362.61 m²',
-      ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
-      area: '362.61 m²',
-      historia: [
-        { yr:'2022', txt:'Segregación → José Mauricio Flores (USD 1,500)' },
-      ]
-    },
-  };
 
+// Relaciones entre matrículas:
+// origen: de qué matrícula proviene (segregación / reunión)
+// segregadas: matrículas que se desprendieron de ésta
+// reunidas: matrículas que se fusionaron para formar ésta
+const props = {
+  '75033563-00000': {
+    nombre: 'Solar "A", Manzana 21',
+    tipo: 'independiente',
+    ubicacion: 'Polígono "Solares Tierra Blanca", Hacienda California, Jiquilisco',
+    area: '714 m²',
+    origen: null,
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'1977', tipo:'adj',  txt:'Adjudicación ISTA → Gabriel Bonilla Iraheta + familia' },
+      { yr:'2007', tipo:'vta',  txt:'Zoila Solano → Hernández Durán + Bonilla de Hdz. (66.67%)' },
+      { yr:'2007', tipo:'vta',  txt:'Rosa Lidya Bonilla → Hernández Durán + Bonilla de Hdz.' },
+      { yr:'2008', tipo:'vta',  txt:'Copropietarios → Zoila Solano de Bonilla (readquiere)' },
+      { yr:'2013', tipo:'vta',  txt:'Zoila Solano → Hernández Durán + Bonilla de Hdz. (50% c/u)' },
+    ]
+  },
+  '75033622-00000': {
+    nombre: 'Porción Lote #192 — 14,000 m²',
+    tipo: 'antecedente',
+    ubicacion: 'Pol. "B", Hacienda California, Cantón Tierra Blanca',
+    area: '14,000 m² (luego 10,500 m²)',
+    origen: null,
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'1985', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
+      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+      { yr:'2011', tipo:'seg', txt:'Segregación 3,500 m² → José Gilberto Guzmán Bermúdez', mat_seg: null },
+      { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
+    ]
+  },
+  '75033625-00000': {
+    nombre: 'Porción Lote #192 — 15,721 m²',
+    tipo: 'antecedente',
+    ubicacion: 'Pol. "B", Hacienda California, Cantón Tierra Blanca',
+    area: '15,721 m²',
+    origen: null,
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'1993', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
+      { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
+    ]
+  },
+  '75033626-00000': {
+    nombre: 'Parte Hacienda California — 1,750 m²',
+    tipo: 'antecedente',
+    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
+    area: '1,750 m²',
+    origen: null,
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'1984', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
+      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+    ]
+  },
+  '75033627-00000': {
+    nombre: 'Predio Principal — 70,000 m²',
+    tipo: 'independiente',
+    ubicacion: 'Cantón Tierra Blanca, Hacienda California, Jiquilisco',
+    area: '70,000 m²',
+    origen: null,
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'1986', tipo:'vta', txt:'José María Parada → Gabriel Bonilla Iraheta (40,000 colones)' },
+      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+      { yr:'2014', tipo:'vta', txt:'Zoila Solano → Noé Abrahán Hernández Durán (USD 4,000)' },
+      { yr:'2017', tipo:'vta', txt:'Noé Hernández (vía apoderada) → José Rigoberto Claros Zamora (USD 60,000)' },
+      { yr:'2017', tipo:'don', txt:'Claros Zamora dona a su hija María José Claros Claros (valor USD 50,000)' },
+      { yr:'2020', tipo:'vta', txt:'María José Claros Claros → Alejandro Escobar Iraheta (USD 60,000)' },
+    ]
+  },
+  '75033628-00000': {
+    nombre: 'Porción 1ª Lote #192 — 14,000 m²',
+    tipo: 'antecedente',
+    ubicacion: 'Pol. "B", Hacienda California, Jiquilisco',
+    area: '14,000 m²',
+    origen: null,
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'1983', tipo:'vta', txt:'Juan Bonilla → Gabriel Bonilla Iraheta' },
+      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+      { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
+    ]
+  },
+  '75033629-00000': {
+    nombre: 'Porción 2ª Lote #192 — 3,500 m²',
+    tipo: 'antecedente',
+    ubicacion: 'Pol. "B", Hacienda California, Jiquilisco',
+    area: '3,500 m²',
+    origen: null,
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'1983', tipo:'vta', txt:'Juan Bonilla → Josefa Bonilla Iraheta' },
+      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+      { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
+    ]
+  },
+  '75076668-00000': {
+    nombre: 'Lote segregado — 4,105.21 m²',
+    tipo: 'segregada',
+    ubicacion: 'Segregado de Lote #192, Pol. "B", Hacienda California',
+    area: '4,105.21 m²',
+    origen: null, // segregada de matrículas antecedentes (Zoila era titular por herencia de 75033622/75033625)
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'2007', tipo:'seg', txt:'Segregación y venta: Zoila Solano → Barahona Torrez (proindivisión 50%)' },
+      { yr:'2015', tipo:'vta', txt:'Barahona Torrez → José Edgar Romero Escobar (USD 1,400)' },
+      { yr:'2015', tipo:'vta', txt:'Romero Escobar → Barahona Torrez (USD 10,000)' },
+    ]
+  },
+  '75189732-00000': {
+    nombre: 'Predio Reunido — 39,615.79 m²',
+    tipo: 'reunion',
+    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California',
+    area: '39,615.79 m² (se reduce con cada segregación)',
+    origen: null,
+    segregadas: ['75211168-00000','75216784-00000','75244178-00000'],
+    reunidas: ['75033622-00000','75033625-00000','75033628-00000','75033629-00000'],
+    historia: [
+      { yr:'2014', tipo:'reu', txt:'Reunión de matrículas → Ana Elsy Bonilla de Hernández (100%)' },
+      { yr:'2017', tipo:'seg', txt:'Segregación 9,526.83 m² → Juan Francisco Bonilla Solano (USD 1,400)', mat_seg:'75211168-00000' },
+      { yr:'2017', tipo:'seg', txt:'Segregación 635.87 m² → Blanca Mirian Cárcamo + José Benjamín Torres (USD 1,300)', mat_seg:'75216784-00000' },
+      { yr:'2022', tipo:'seg', txt:'Segregación 362.61 m² → José Mauricio Flores (USD 1,500)', mat_seg:'75244178-00000' },
+    ]
+  },
+  '75211168-00000': {
+    nombre: 'Segregado — 9,526.83 m²',
+    tipo: 'segregada',
+    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
+    area: '9,526.83 m²',
+    origen: '75189732-00000',
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'2017', tipo:'seg', txt:'Segregada de 75189732 → Juan Francisco Bonilla Solano (USD 1,400)' },
+    ]
+  },
+  '75216784-00000': {
+    nombre: 'Segregado — 635.87 m²',
+    tipo: 'segregada',
+    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
+    area: '635.87 m²',
+    origen: '75189732-00000',
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'2017', tipo:'seg', txt:'Segregada de 75189732 → Blanca Mirian Cárcamo + José Benjamín Torres (50% c/u, USD 1,300)' },
+      { yr:'2023', tipo:'vta', txt:'Cárcamo / Torres → María Marlene Torres Cárcamo (USD 10,000)' },
+    ]
+  },
+  '75244178-00000': {
+    nombre: 'Segregado — 362.61 m²',
+    tipo: 'segregada',
+    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
+    area: '362.61 m²',
+    origen: '75189732-00000',
+    segregadas: [],
+    reunidas: [],
+    historia: [
+      { yr:'2022', tipo:'seg', txt:'Segregada de 75189732 → José Mauricio Flores (USD 1,500)' },
+    ]
+  },
+};
+
+// colores por tipo de evento en historial
+const histColor = {
+  vta: '#8b3a0f', seg: '#8a4a9b', reu: '#4a6fa5',
+  her: '#c49a2a', don: '#2d5a27', adj: '#4a7a8a'
+};
+const histLabel = {
+  vta:'Compraventa', seg:'Segregación', reu:'Reunión',
+  her:'Herencia', don:'Donación', adj:'Adjudicación'
+};
+
+// badge de tipo de inmueble
+const tipoBadge = {
+  independiente: { label:'Independiente', color:'#4a7a8a' },
+  antecedente:   { label:'Antecedente (reunida)', color:'#c49a2a' },
+  segregada:     { label:'Segregada', color:'#8a4a9b' },
+  reunion:       { label:'Producto de Reunión', color:'#4a6fa5' },
+};
+
+// navigateToProp definida al final del script
+
+function renderInmuebles() {
   const container = document.getElementById('prop-container');
+
   Object.entries(props).forEach(([mat, p]) => {
     const card = document.createElement('div');
     card.className = 'prop-card';
+    card.id = 'prop-' + mat;
+
+    const tb = tipoBadge[p.tipo] || tipoBadge.independiente;
+
+    // Construir sección de origen (viene de)
+    let origenHTML = '';
+    if (p.origen) {
+      const o = props[p.origen];
+      origenHTML = `
+        <div class="prop-link-section">
+          <div class="prop-link-label">⬆ Segregada de</div>
+          <button class="mat-link" onclick="navigateToProp('${p.origen}')">
+            📋 ${p.origen}<br><small>${o ? o.nombre : ''}</small>
+          </button>
+        </div>`;
+    }
+
+    // Construir sección de matrículas reunidas (viene de)
+    let reuHTML = '';
+    if (p.reunidas && p.reunidas.length) {
+      reuHTML = `
+        <div class="prop-link-section">
+          <div class="prop-link-label">🔗 Formada por reunión de</div>
+          <div class="mat-link-group">
+            ${p.reunidas.map(m => {
+              const r = props[m];
+              return `<button class="mat-link mat-link-sm" onclick="navigateToProp('${m}')">
+                📋 ${m}<br><small>${r ? r.nombre : ''}</small>
+              </button>`;
+            }).join('')}
+          </div>
+        </div>`;
+    }
+
+    // Construir sección de segregaciones (sale de)
+    let segHTML = '';
+    if (p.segregadas && p.segregadas.length) {
+      segHTML = `
+        <div class="prop-link-section">
+          <div class="prop-link-label">⬇ Matrículas segregadas</div>
+          <div class="mat-link-group">
+            ${p.segregadas.map(m => {
+              const s = props[m];
+              return `<button class="mat-link mat-link-seg" onclick="navigateToProp('${m}')">
+                📋 ${m}<br><small>${s ? s.nombre : ''}</small>
+              </button>`;
+            }).join('')}
+          </div>
+        </div>`;
+    }
+
+    // Historial con links en entradas que tienen mat_destino o mat_seg
+    const histHTML = p.historia.map(h => {
+      let extra = '';
+      if (h.mat_destino) {
+        extra = `<button class="mat-link-inline" onclick="navigateToProp('${h.mat_destino}')">→ ${h.mat_destino}</button>`;
+      }
+      if (h.mat_seg) {
+        extra = `<button class="mat-link-inline" onclick="navigateToProp('${h.mat_seg}')">→ ${h.mat_seg}</button>`;
+      }
+      return `
+        <div class="hist-step">
+          <span class="yr">${h.yr}</span>
+          <span class="hist-tipo-dot" style="background:${histColor[h.tipo]||'#888'}" title="${histLabel[h.tipo]||h.tipo}"></span>
+          <span>${h.txt} ${extra}</span>
+        </div>`;
+    }).join('');
+
     card.innerHTML = `
-      <div class="mat-num">MATRÍCULA ${mat}</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.3rem;flex-wrap:wrap;gap:.4rem">
+        <div class="mat-num">MATRÍCULA ${mat}</div>
+        <span class="tipo-badge" style="background:${tb.color}">${tb.label}</span>
+      </div>
       <h3>${p.nombre}</h3>
       <div class="prop-stat"><span class="lbl">Área</span><span>${p.area}</span></div>
       <div class="prop-stat"><span class="lbl">Ubicación</span><span style="font-size:.72rem;text-align:right;max-width:60%">${p.ubicacion}</span></div>
+      ${origenHTML}
+      ${reuHTML}
+      ${segHTML}
       <div class="prop-history">
         <div class="prop-history-title">Historial de Traspasos</div>
-        ${p.historia.map(h=>`
-          <div class="hist-step">
-            <span class="yr">${h.yr}</span>
-            <span>${h.txt}</span>
-          </div>
-        `).join('')}
+        ${histHTML}
       </div>
     `;
     container.appendChild(card);
@@ -1454,11 +1679,29 @@ function renderInmuebles() {
 // ─────────────────────────────────────────────
 //  NAVIGATION
 // ─────────────────────────────────────────────
-function showView(name) {
+const tabNames = ['timeline','inmuebles','matrix','personas'];
+
+function showView(name, el) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('view-'+name).classList.add('active');
-  event.target.classList.add('active');
+  const idx = tabNames.indexOf(name);
+  const tabs = document.querySelectorAll('.tab');
+  if (idx >= 0 && tabs[idx]) tabs[idx].classList.add('active');
+  else if (el) el.classList.add('active');
+}
+
+// navigateToProp — cambia a vista inmuebles y hace scroll+highlight
+function navigateToProp(mat) {
+  showView('inmuebles');
+  setTimeout(() => {
+    const target = document.getElementById('prop-' + mat);
+    if (!target) return;
+    document.querySelectorAll('.prop-card.highlighted').forEach(c => c.classList.remove('highlighted'));
+    target.classList.add('highlighted');
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => target.classList.remove('highlighted'), 2400);
+  }, 90);
 }
 
 // INIT
