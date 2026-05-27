@@ -11,8 +11,6 @@
   <meta name="apple-mobile-web-app-title" content="registro">
   <link rel="apple-touch-icon" href="icono.jpg">
 
-  
-  
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -71,7 +69,6 @@
     position: relative;
   }
 
-  /* NAV TABS */
   .tabs {
     display: flex;
     gap: 0;
@@ -103,14 +100,12 @@
     background: var(--card-bg);
   }
 
-  /* MAIN */
   main { padding: 2rem 2rem 4rem; max-width: 1200px; margin: 0 auto; }
 
   .view { display: none; }
   .view.active { display: block; animation: fadeIn .3s ease; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
 
-  /* ── TIMELINE ── */
   .timeline { position: relative; padding-left: 2rem; }
   .timeline::before {
     content: '';
@@ -120,14 +115,10 @@
     background: linear-gradient(to bottom, var(--gold), var(--rule));
   }
 
-  .tl-entry {
-    position: relative;
-    margin-bottom: 1.4rem;
-  }
+  .tl-entry { position: relative; margin-bottom: 1.4rem; }
   .tl-dot {
     position: absolute;
-    left: -1.68rem;
-    top: 0.9rem;
+    left: -1.68rem; top: 0.9rem;
     width: 12px; height: 12px;
     border-radius: 50%;
     background: var(--gold);
@@ -164,9 +155,7 @@
     font-weight: 700;
     margin: 0.15rem 0 0.5rem;
   }
-  .tl-meta {
-    display: flex; flex-wrap: wrap; gap: 0.5rem;
-  }
+  .tl-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .tag {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
@@ -180,268 +169,66 @@
   .tag.precio { background: #e0ede0; }
   .tag.area { background: #e8f0e0; }
 
-  .tl-detail {
-    display: none;
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid var(--warm-mid);
-  }
+  .tl-detail { display: none; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--warm-mid); }
   .tl-detail.open { display: block; }
 
-  .person-row {
-    display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 0.8rem;
-  }
-  .person-box {
-    flex: 1; min-width: 200px;
-    background: var(--warm-mid);
-    border-radius: 4px;
-    padding: 0.7rem 0.9rem;
-  }
-  .person-role {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.62rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin-bottom: 0.3rem;
-  }
-  .person-name {
-    font-weight: 600; font-size: 0.9rem; margin-bottom: 0.2rem;
-  }
-  .person-data {
-    font-size: 0.75rem;
-    color: #5a4a2e;
-    line-height: 1.6;
-    font-family: 'IBM Plex Mono', monospace;
-  }
+  .person-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+  .person-box { flex: 1; min-width: 200px; background: var(--warm-mid); border-radius: 4px; padding: 0.7rem 0.9rem; }
+  .person-role { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.3rem; }
+  .person-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.2rem; }
+  .person-data { font-size: 0.75rem; color: #5a4a2e; line-height: 1.6; font-family: 'IBM Plex Mono', monospace; }
 
-  .dates-row {
-    display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.6rem;
-  }
-  .date-item {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    color: #5a4a2e;
-  }
+  .dates-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.6rem; }
+  .date-item { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: #5a4a2e; }
   .date-label { color: var(--rule); font-size: 0.6rem; display: block; }
 
-  /* ── MATRIX TABLE ── */
   .matrix-wrap { overflow-x: auto; }
-  table.matrix {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.78rem;
-  }
+  table.matrix { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
   table.matrix th {
-    background: var(--ink);
-    color: var(--gold);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.7rem 0.9rem;
-    text-align: left;
-    white-space: nowrap;
+    background: var(--ink); color: var(--gold);
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.7rem 0.9rem; text-align: left; white-space: nowrap;
   }
-  table.matrix td {
-    padding: 0.65rem 0.9rem;
-    border-bottom: 1px solid var(--warm-mid);
-    vertical-align: top;
-    background: var(--card-bg);
-    line-height: 1.5;
-  }
+  table.matrix td { padding: 0.65rem 0.9rem; border-bottom: 1px solid var(--warm-mid); vertical-align: top; background: var(--card-bg); line-height: 1.5; }
   table.matrix tr:hover td { background: #f0ece0; }
-  table.matrix .mono {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-  }
-  table.matrix .badge {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
-    padding: 0.15rem 0.45rem;
-    border-radius: 3px;
-    background: var(--accent);
-    color: #fff;
-  }
+  table.matrix .mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; }
+  table.matrix .badge { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; padding: 0.15rem 0.45rem; border-radius: 3px; background: var(--accent); color: #fff; }
   table.matrix .badge.seg { background: #8a4a9b; }
   table.matrix .badge.her { background: var(--gold); color: var(--ink); }
   table.matrix .badge.don { background: var(--accent2); }
   table.matrix .badge.reu { background: #4a6fa5; }
 
-  /* ── PERSONAS ── */
-  .people-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.2rem;
-  }
-  .people-card {
-    background: var(--card-bg);
-    border: 1px solid var(--warm-mid);
-    border-radius: 8px;
-    padding: 1.2rem;
-    box-shadow: 0 2px 8px var(--shadow);
-  }
-  .people-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
-  }
-  .people-card .id-line {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    color: #7a6a4e;
-    margin-bottom: 0.7rem;
-  }
-  .role-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-  .role-chip {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
-    padding: 0.18rem 0.5rem;
-    border-radius: 20px;
-    background: var(--warm-mid);
-    color: var(--ink);
-  }
-  .role-chip.v { background: #fde8e0; color: #8b3a0f; }
-  .role-chip.c { background: #e0f0e0; color: #1a4a1a; }
-  .role-chip.a { background: #e0e8f8; color: #1a2a5a; }
+  .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+  .people-card { background: var(--card-bg); border: 1px solid var(--warm-mid); border-radius: 8px; padding: 1.2rem; box-shadow: 0 2px 8px var(--shadow); }
+  .people-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
+  .people-card .id-line { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: #7a6a4e; margin-bottom: 0.7rem; }
 
-  /* ── INMUEBLES ── */
-  .prop-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1.4rem;
-  }
-  .prop-card {
-    background: var(--card-bg);
-    border: 1px solid var(--warm-mid);
-    border-radius: 8px;
-    padding: 1.3rem;
-    box-shadow: 0 2px 8px var(--shadow);
-  }
-  .prop-card .mat-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--gold);
-    letter-spacing: 0.1em;
-  }
-  .prop-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    margin: 0.2rem 0 0.6rem;
-  }
-  .prop-stat {
-    display: flex; justify-content: space-between;
-    font-size: 0.75rem;
-    padding: 0.35rem 0;
-    border-bottom: 1px solid var(--warm-mid);
-  }
+  .prop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.4rem; }
+  .prop-card { background: var(--card-bg); border: 1px solid var(--warm-mid); border-radius: 8px; padding: 1.3rem; box-shadow: 0 2px 8px var(--shadow); }
+  .prop-card .mat-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--gold); letter-spacing: 0.1em; }
+  .prop-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin: 0.2rem 0 0.6rem; }
+  .prop-stat { display: flex; justify-content: space-between; font-size: 0.75rem; padding: 0.35rem 0; border-bottom: 1px solid var(--warm-mid); }
   .prop-stat:last-child { border-bottom: none; }
-  .prop-stat .lbl {
-    color: #7a6a4e;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-  }
-  .prop-history {
-    margin-top: 0.8rem;
-    padding-top: 0.8rem;
-    border-top: 1px solid var(--warm-mid);
-  }
-  .prop-history-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.62rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--rule);
-    margin-bottom: 0.5rem;
-  }
-  .hist-step {
-    font-size: 0.72rem;
-    display: flex; align-items: flex-start; gap: 0.5rem;
-    margin-bottom: 0.35rem;
-    line-height: 1.4;
-  }
-  .hist-step .yr {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.62rem;
-    background: var(--ink);
-    color: var(--gold);
-    padding: 0.1rem 0.35rem;
-    border-radius: 2px;
-    white-space: nowrap;
-    margin-top: 1px;
-  }
+  .prop-stat .lbl { color: #7a6a4e; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; text-transform: uppercase; }
+  .prop-history { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--warm-mid); }
+  .prop-history-title { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--rule); margin-bottom: 0.5rem; }
+  .hist-step { font-size: 0.72rem; display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.35rem; line-height: 1.4; }
+  .hist-step .yr { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; background: var(--ink); color: var(--gold); padding: 0.1rem 0.35rem; border-radius: 2px; white-space: nowrap; margin-top: 1px; }
 
-  /* Legend */
-  .legend {
-    display: flex; flex-wrap: wrap; gap: 0.8rem;
-    margin-bottom: 1.5rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-  }
+  .legend { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; }
   .legend-item { display: flex; align-items: center; gap: 0.4rem; }
   .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
 
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--rule);
-    color: var(--ink);
-  }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--rule); color: var(--ink); }
+  .toggle-hint { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--rule); margin-bottom: 1rem; }
 
-  .toggle-hint {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--rule);
-    margin-bottom: 1rem;
-  }
+  .tipo-badge { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; padding: 0.2rem 0.55rem; border-radius: 20px; color: #fff; letter-spacing: 0.05em; white-space: nowrap; }
 
-  /* ── TIPO BADGE en inmuebles ── */
-  .tipo-badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.58rem;
-    padding: 0.2rem 0.55rem;
-    border-radius: 20px;
-    color: #fff;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-
-  /* ── LINKS DE MATRÍCULA ── */
-  .prop-link-section {
-    margin: 0.7rem 0;
-    padding: 0.6rem 0.8rem;
-    border-radius: 5px;
-    background: var(--warm-mid);
-    border-left: 3px solid var(--gold);
-  }
-  .prop-link-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.58rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--rule);
-    margin-bottom: 0.4rem;
-  }
+  .prop-link-section { margin: 0.7rem 0; padding: 0.6rem 0.8rem; border-radius: 5px; background: var(--warm-mid); border-left: 3px solid var(--gold); }
+  .prop-link-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--rule); margin-bottom: 0.4rem; }
   .mat-link-group { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .mat-link {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    line-height: 1.4;
-    padding: 0.35rem 0.7rem;
-    border-radius: 4px;
-    background: var(--ink);
-    color: var(--gold);
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    transition: background .15s, transform .1s;
-  }
+  .mat-link { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; line-height: 1.4; padding: 0.35rem 0.7rem; border-radius: 4px; background: var(--ink); color: var(--gold); border: none; cursor: pointer; text-align: left; transition: background .15s, transform .1s; }
   .mat-link:hover { background: #3a2a12; transform: translateY(-1px); }
   .mat-link small { color: #c8b890; font-size: .6rem; display: block; }
   .mat-link-sm  { font-size: 0.63rem; }
@@ -449,38 +236,17 @@
   .mat-link-seg:hover { background: #5a2a6a; }
   .mat-link-seg small { color: #d4a8e8; }
 
-  .mat-link-inline {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.62rem;
-    padding: 0.1rem 0.4rem;
-    border-radius: 3px;
-    background: transparent;
-    border: 1px solid var(--rule);
-    color: var(--accent);
-    cursor: pointer;
-    margin-left: 0.3rem;
-    transition: background .15s, color .15s;
-    white-space: nowrap;
-  }
+  .mat-link-inline { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; padding: 0.1rem 0.4rem; border-radius: 3px; background: transparent; border: 1px solid var(--rule); color: var(--accent); cursor: pointer; margin-left: 0.3rem; transition: background .15s, color .15s; white-space: nowrap; }
   .mat-link-inline:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-  .hist-tipo-dot {
-    display: inline-block;
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 5px;
-  }
+  .hist-tipo-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
 
   @keyframes highlightPulse {
     0%   { box-shadow: 0 0 0 0 rgba(196,154,42,0.7), 0 2px 8px var(--shadow); }
     40%  { box-shadow: 0 0 0 8px rgba(196,154,42,0.15), 0 4px 20px rgba(196,154,42,0.3); }
     100% { box-shadow: 0 0 0 0 rgba(196,154,42,0), 0 2px 8px var(--shadow); }
   }
-  .prop-card.highlighted {
-    border-color: var(--gold) !important;
-    animation: highlightPulse 2s ease-out;
-  }
+  .prop-card.highlighted { border-color: var(--gold) !important; animation: highlightPulse 2s ease-out; }
 
   @media(max-width:600px) {
     header { padding: 1.5rem; }
@@ -505,75 +271,686 @@
 </div>
 
 <main>
-
-<!-- ══════════ TIMELINE ══════════ -->
-<div id="view-timeline" class="view active">
-  <h2 class="section-title">Cronología de Actos Registrales</h2>
-  <div class="legend">
-    <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Compraventa</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div> Donación</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Herencia</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#4a6fa5"></div> Reunión</div>
-    <div class="legend-item"><div class="legend-dot" style="background:#8a4a9b"></div> Segregación</div>
+  <div id="view-timeline" class="view active">
+    <h2 class="section-title">Cronología de Actos Registrales</h2>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Compraventa</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent2)"></div> Donación</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Herencia</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4a6fa5"></div> Reunión</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8a4a9b"></div> Segregación</div>
+    </div>
+    <p class="toggle-hint">Haz clic en cada acto para ver el detalle completo ▼</p>
+    <div class="timeline" id="timeline-container"></div>
   </div>
-  <p class="toggle-hint">Haz clic en cada acto para ver el detalle completo ▼</p>
-  <div class="timeline" id="timeline-container"></div>
-</div>
 
-<!-- ══════════ INMUEBLES ══════════ -->
-<div id="view-inmuebles" class="view">
-  <h2 class="section-title">Inmuebles por Matrícula</h2>
-  <div class="prop-grid" id="prop-container"></div>
-</div>
-
-<!-- ══════════ MATRIX ══════════ -->
-<div id="view-matrix" class="view">
-  <h2 class="section-title">Tabla de Todos los Actos</h2>
-  <div class="matrix-wrap">
-    <table class="matrix">
-      <thead>
-        <tr>
-          <th>Año</th>
-          <th>Tipo de Acto</th>
-          <th>Matrícula</th>
-          <th>Área (m²)</th>
-          <th>Vendedor / Tradente</th>
-          <th>Comprador / Adquirente</th>
-          <th>Precio</th>
-          <th>Fecha Escritura</th>
-          <th>Inscripción</th>
-        </tr>
-      </thead>
-      <tbody id="matrix-body"></tbody>
-    </table>
+  <div id="view-inmuebles" class="view">
+    <h2 class="section-title">Inmuebles por Matrícula</h2>
+    <div class="prop-grid" id="prop-container"></div>
   </div>
-</div>
 
-<!-- ══════════ PERSONAS ══════════ -->
-<div id="view-personas" class="view">
-  <h2 class="section-title">Personas Intervinientes</h2>
-  <div class="people-grid" id="people-container"></div>
-</div>
+  <div id="view-matrix" class="view">
+    <h2 class="section-title">Tabla de Todos los Actos</h2>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Año</th><th>Tipo de Acto</th><th>Matrícula</th><th>Área (m²)</th>
+            <th>Vendedor / Tradente</th><th>Comprador / Adquirente</th>
+            <th>Precio</th><th>Fecha Escritura</th><th>Inscripción</th>
+          </tr>
+        </thead>
+        <tbody id="matrix-body"></tbody>
+      </table>
+    </div>
+  </div>
 
+  <div id="view-personas" class="view">
+    <h2 class="section-title">Personas Intervinientes</h2>
+    <div class="people-grid" id="people-container"></div>
+  </div>
 </main>
 
 <script>
-// ─────────────────────────────────────────────
-//  DATA
-// ─────────────────────────────────────────────
+
+// ═══════════════════════════════════════════════════════════════════════
+//  SECCIÓN 1 — PERSONAS
+//  Cada variable se nombra  p + DUI sin guiones ni espacios.
+//  Para DUIs antiguos sin guión se usa el número tal cual.
+//  Institución ISTA usa pISTA.
+// ═══════════════════════════════════════════════════════════════════════
+
+// ── Gabriel Bonilla Iraheta ─────────────────────────────────────────
+const p52006590 = {
+  dui:        '52006590',
+  nit:        '—',
+  nombre:     'Gabriel Bonilla Iraheta',
+  aka:        'José Gabriel Bonilla',
+  edad_ref:   '39 años (1977) / 46 años (1983) / 47 años (1984) / 48 años (1985) / 49 años (1986) / 56 años (1993)',
+  profesion:  'Agricultor en pequeño',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Figura central de la primera generación. Adquirió todas las porciones del Lote #192 entre 1977 y 1993. Falleció antes de 2005, año en que sus bienes pasaron por herencia a su cónyuge Zoila Solano de Bonilla.',
+  roles_doc: [
+    { yr:'1977', rol:'Comprador (con familia)',  acto:'Adjudicación ISTA 75033563' },
+    { yr:'1983', rol:'Comprador',                acto:'75033628 y 75033629' },
+    { yr:'1984', rol:'Comprador',                acto:'75033626' },
+    { yr:'1985', rol:'Comprador',                acto:'75033622' },
+    { yr:'1986', rol:'Comprador',                acto:'75033627 (70,000 m²)' },
+    { yr:'1993', rol:'Comprador',                acto:'75033625 (15,721 m²)' },
+  ]
+};
+
+// ── Zoila Solano de Bonilla ─────────────────────────────────────────
+const p006884973 = {
+  dui:        '00688497-3',
+  nit:        '1108-270447-101-5',
+  nombre:     'Zoila Solano de Bonilla',
+  aka:        'Zoila Solano',
+  edad_ref:   '29 años (1977) / 60 años (2008) / 66 años (2014) / 70 años (2017)',
+  profesion:  'Oficios domésticos',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Cónyuge sobreviviente de Gabriel Bonilla Iraheta. Heredó las matrículas de la familia en 2005. No sabía firmar; dejó huella digital en múltiples actos. Actuó como apoderada especial de Noé Hernández Durán (poder 2014) y como apoderada de Ana Elsy Bonilla de Hernández.',
+  roles_doc: [
+    { yr:'1977', rol:'Compradora (con esposo)',          acto:'Adjudicación ISTA 75033563' },
+    { yr:'2005', rol:'Heredera universal',               acto:'Traspasos herencia (múltiples matrículas)' },
+    { yr:'2007', rol:'Tradente (segregación)',            acto:'75076668' },
+    { yr:'2007', rol:'Vendedora',                        acto:'Solar 75033563 (acto 1)' },
+    { yr:'2008', rol:'Compradora',                       acto:'Solar 75033563 (readquiere)' },
+    { yr:'2011', rol:'Vendedora (tradente)',              acto:'Segregación 75033622' },
+    { yr:'2013', rol:'Vendedora',                        acto:'Solar 75033563' },
+    { yr:'2014', rol:'Vendedora',                        acto:'75033627 → Noé Hernández' },
+    { yr:'2014', rol:'Vendedora (apoderada de Ana Elsy)',acto:'Compraventa 75189732' },
+    { yr:'2017', rol:'Apoderada especial de Noé Hernández', acto:'Venta 75033627 → Claros Zamora' },
+    { yr:'2022', rol:'Apoderada de Ana Elsy',            acto:'Segregación 75244178' },
+  ]
+};
+
+// ── Juan Bonilla Ortega ─────────────────────────────────────────────
+const p52006819 = {
+  dui:        '52006819',
+  nit:        '—',
+  nombre:     'Juan Bonilla Ortega',
+  aka:        'Juan Bonilla',
+  edad_ref:   '78 años (1983) / 79 años (1984) / 80 años (1985) / 88 años (1993)',
+  profesion:  'Agricultor en pequeño',
+  domicilio:  'Cantón Tierra Blanca / Jiquilisco, Usulután',
+  notas:      'Vendedor original de la mayoría de porciones del Lote #192 a Gabriel Bonilla Iraheta entre 1983 y 1993. No sabía firmar; dejó huella digital en todos sus actos.',
+  roles_doc: [
+    { yr:'1983', rol:'Vendedor', acto:'75033628 y 75033629' },
+    { yr:'1984', rol:'Vendedor', acto:'75033626' },
+    { yr:'1985', rol:'Vendedor', acto:'75033622' },
+    { yr:'1993', rol:'Vendedor', acto:'75033625' },
+  ]
+};
+
+// ── Ana Elsy Bonilla de Hernández ───────────────────────────────────
+const p000699192 = {
+  dui:        '00069919-2',
+  nit:        '11108-021271-101-8',
+  nombre:     'Ana Elsy Bonilla de Hernández',
+  aka:        '',
+  edad_ref:   '42 años (2014) / 45 años (2017) / 49 años (2022)',
+  profesion:  'Ama de Casa / Comerciante (varía por acto)',
+  domicilio:  'Santa Tecla, La Libertad (luego Soyapango, San Salvador)',
+  notas:      'Titular resultante de la reunión de inmuebles (Matrícula 75189732, 2014). Actúa como vendedora en múltiples segregaciones. En varios actos la representa como apoderada Zoila Solano de Bonilla.',
+  roles_doc: [
+    { yr:'2007', rol:'Compradora (proindivisión 33.33%)',  acto:'Solar 75033563' },
+    { yr:'2008', rol:'Vendedora (copropietaria)',           acto:'Solar 75033563' },
+    { yr:'2013', rol:'Compradora (50%)',                    acto:'Solar 75033563' },
+    { yr:'2014', rol:'Titular única (100%)',                acto:'Reunión Matrícula 75189732' },
+    { yr:'2017', rol:'Vendedora (vía apoderada)',           acto:'Segregación 75211168' },
+    { yr:'2017', rol:'Vendedora',                          acto:'Segregación 75216784' },
+    { yr:'2022', rol:'Vendedora (vía apoderada)',           acto:'Segregación 75244178' },
+  ]
+};
+
+// ── Noé Abrahán Hernández Durán ─────────────────────────────────────
+const p012898621 = {
+  dui:        '01289862-1',
+  nit:        '1108-160671-101-0',
+  nombre:     'Noé Abrahán Hernández Durán',
+  aka:        '',
+  edad_ref:   '36 años (2007–2013) / 43 años (2014)',
+  profesion:  'Licenciado en Contaduría Pública',
+  domicilio:  'Soyapango, San Salvador (luego Santa Tecla, La Libertad)',
+  notas:      'Actúa en múltiples actos como copropietario del Solar 75033563. Adquiere la Matrícula 75033627 (70,000 m²) en 2014 y la revende en 2017 a través de su apoderada Zoila Solano de Bonilla.',
+  roles_doc: [
+    { yr:'2007', rol:'Comprador (33.33%)',                  acto:'Solar 75033563 (acto 1)' },
+    { yr:'2007', rol:'Comprador (33.33%)',                  acto:'Solar 75033563 (acto 2)' },
+    { yr:'2008', rol:'Vendedor (copropietario)',            acto:'Solar 75033563' },
+    { yr:'2013', rol:'Comprador (50%)',                     acto:'Solar 75033563' },
+    { yr:'2014', rol:'Comprador',                          acto:'75033627 (USD 4,000)' },
+    { yr:'2017', rol:'Vendedor (vía apoderada Zoila)',      acto:'75033627 → Claros Zamora (USD 60,000)' },
+  ]
+};
+
+// ── Rosa Lidya Bonilla de Barahona ──────────────────────────────────
+const p040326844 = {
+  dui:        '04032684-4',
+  nit:        '1108-281164-101-2',
+  nombre:     'Rosa Lidya Bonilla de Barahona',
+  aka:        'Rosa Lidia Bonilla Solano / Rosa Lidya Bonilla Solano',
+  edad_ref:   '— (nacida 28/11/1964)',
+  profesion:  'Empleada',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Hija menor legítima de Gabriel Bonilla Iraheta y Zoila Solano de Bonilla (representada por sus padres en 1977). Aparece como vendedora y compradora en la Matrícula 75076668 y participa en la venta del Solar 75033563.',
+  roles_doc: [
+    { yr:'1977', rol:'Compradora (menor, representada por padres)', acto:'Adjudicación ISTA 75033563' },
+    { yr:'2007', rol:'Compradora (50%) de 75076668',               acto:'Segregación 75076668' },
+    { yr:'2007', rol:'Vendedora (33.33%)',                          acto:'Solar 75033563' },
+    { yr:'2015', rol:'Vendedora (50%)',                             acto:'75076668 → Romero Escobar' },
+    { yr:'2015', rol:'Compradora (50%)',                            acto:'75076668 ← Romero Escobar' },
+  ]
+};
+
+// ── Ricardo de Jesús Barahona Torrez ────────────────────────────────
+const p040326064 = {
+  dui:        '04032606-4',
+  nit:        '1118-260459-101-8',
+  nombre:     'Ricardo de Jesús Barahona Torrez',
+  aka:        '',
+  edad_ref:   '— (nacido 26/04/1959) / 55 años (2015)',
+  profesion:  'Empleado',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Esposo de Rosa Lidya Bonilla de Barahona. Copropietario al 50% de la Matrícula 75076668.',
+  roles_doc: [
+    { yr:'2007', rol:'Comprador (50%)',  acto:'Segregación 75076668' },
+    { yr:'2015', rol:'Vendedor (50%)',   acto:'75076668 → Romero Escobar' },
+    { yr:'2015', rol:'Comprador (50%)',  acto:'75076668 ← Romero Escobar' },
+  ]
+};
+
+// ── José Edgar Romero Escobar ───────────────────────────────────────
+const p031586762 = {
+  dui:        '03158676-2',
+  nit:        '1123-300481-106-9',
+  nombre:     'José Edgar Romero Escobar',
+  aka:        '',
+  edad_ref:   '33 años (2015)',
+  profesion:  'Abogado y Notario',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Actuó como intermediario en la Matrícula 75076668: la compró a los Barahona y luego la revendió a los mismos en el mismo año (2015).',
+  roles_doc: [
+    { yr:'2015', rol:'Vendedor',   acto:'75076668 → Barahona Torrez (USD 10,000)' },
+    { yr:'2015', rol:'Comprador',  acto:'75076668 ← Barahona Torrez (USD 1,400)' },
+  ]
+};
+
+// ── José Rigoberto Claros Zamora ────────────────────────────────────
+const p017605552 = {
+  dui:        '01760555-2',
+  nit:        '1119-200164-101-6',
+  nombre:     'José Rigoberto Claros Zamora',
+  aka:        '',
+  edad_ref:   '53 años (2017)',
+  profesion:  'Agricultor',
+  domicilio:  'Usulután',
+  notas:      'Compró la Matrícula 75033627 a Noé Hernández Durán en julio 2017 (USD 60,000) y en agosto 2017 la donó irrevocablemente a su hija María José Claros Claros.',
+  roles_doc: [
+    { yr:'2017', rol:'Comprador', acto:'75033627 ← Noé Hernández (USD 60,000)' },
+    { yr:'2017', rol:'Donante',   acto:'75033627 → María José Claros Claros (hija)' },
+  ]
+};
+
+// ── María José Claros Claros ────────────────────────────────────────
+const p050874051 = {
+  dui:        '05087405-1',
+  nit:        '1123-270494-101-3',
+  nombre:     'María José Claros Claros',
+  aka:        '',
+  edad_ref:   '23 años (2017) / 26 años (2020)',
+  profesion:  'Comerciante',
+  domicilio:  'Usulután',
+  notas:      'Hija de José Rigoberto Claros Zamora. Recibió la Matrícula 75033627 (70,000 m²) en donación irrevocable en 2017 y la vendió en 2020 a Alejandro Escobar Iraheta por USD 60,000.',
+  roles_doc: [
+    { yr:'2017', rol:'Donataria (hija del donante)', acto:'75033627 ← Donación de Claros Zamora' },
+    { yr:'2020', rol:'Vendedora',                    acto:'75033627 → Alejandro Escobar Iraheta (USD 60,000)' },
+  ]
+};
+
+// ── Alejandro Escobar Iraheta ───────────────────────────────────────
+const p021365839 = {
+  dui:        '02136583-9',
+  nit:        '1119-270264-101-0',
+  nombre:     'Alejandro Escobar Iraheta',
+  aka:        '',
+  edad_ref:   '56 años (2020)',
+  profesion:  'Agricultor',
+  domicilio:  'San Francisco Javier, Usulután',
+  notas:      'Comprador final de la Matrícula 75033627 (70,000 m²) en 2020.',
+  roles_doc: [
+    { yr:'2020', rol:'Comprador', acto:'75033627 ← María José Claros (USD 60,000)' },
+  ]
+};
+
+// ── Blanca Mirian Cárcamo de Torres ────────────────────────────────
+const p035774943 = {
+  dui:        '03577494-3',
+  nit:        '11108-260857-101-4',
+  nombre:     'Blanca Mirian Cárcamo de Torres',
+  aka:        '',
+  edad_ref:   '60 años (2017) / 65 años (2023)',
+  profesion:  'Empleada',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Compradora en 2017 del lote segregado 75216784 junto con José Benjamín Torres (proindivisión 50%). Lo vendieron juntos en 2023 a María Marlene Torres Cárcamo.',
+  roles_doc: [
+    { yr:'2017', rol:'Compradora (50%)', acto:'Segregación 75216784' },
+    { yr:'2023', rol:'Vendedora (50%)',  acto:'75216784 → María Marlene Torres Cárcamo (USD 10,000)' },
+  ]
+};
+
+// ── José Benjamín Torres ────────────────────────────────────────────
+const p056909943 = {
+  dui:        '05690994-3',
+  nit:        '11118-131146-101-6',
+  nombre:     'José Benjamín Torres',
+  aka:        '',
+  edad_ref:   '71 años (2017) / 76 años (2023)',
+  profesion:  'Empleado',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Copropietario al 50% de la Matrícula 75216784 junto con Blanca Mirian Cárcamo de Torres.',
+  roles_doc: [
+    { yr:'2017', rol:'Comprador (50%)', acto:'Segregación 75216784' },
+    { yr:'2023', rol:'Vendedor (50%)',  acto:'75216784 → María Marlene Torres Cárcamo (USD 10,000)' },
+  ]
+};
+
+// ── María Marlene Torres Cárcamo ────────────────────────────────────
+const p068560616 = {
+  dui:        '06856061-6',
+  nit:        '—',
+  nombre:     'María Marlene Torres Cárcamo',
+  aka:        '',
+  edad_ref:   '47 años (2023)',
+  profesion:  'Empleada',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Compradora final de la Matrícula 75216784 (635.87 m²) en 2023.',
+  roles_doc: [
+    { yr:'2023', rol:'Compradora', acto:'75216784 ← Cárcamo/Torres (USD 10,000)' },
+  ]
+};
+
+// ── José Mauricio Flores ────────────────────────────────────────────
+const p041154981 = {
+  dui:        '04115498-1',
+  nit:        '1108-100669-101-5',
+  nombre:     'José Mauricio Flores',
+  aka:        '',
+  edad_ref:   '53 años (2022)',
+  profesion:  'Empleado',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Comprador de la Matrícula 75244178 (362.61 m²), segregada de 75189732 en 2022.',
+  roles_doc: [
+    { yr:'2022', rol:'Comprador', acto:'Segregación 75244178 ← Ana Elsy Bonilla (USD 1,500)' },
+  ]
+};
+
+// ── Juan Francisco Bonilla Solano ───────────────────────────────────
+const p042617801 = {
+  dui:        '04261780-1',
+  nit:        '1108-220276-102-8',
+  nombre:     'Juan Francisco Bonilla Solano',
+  aka:        '',
+  edad_ref:   '40 años (2017)',
+  profesion:  'Empleado',
+  domicilio:  'Germantown, Maryland, EE.UU.',
+  notas:      'Comprador de la Matrícula 75211168 (9,526.83 m²) en 2017. Residente en EE.UU.; actuó a través de apoderada Glenda Carolina Lozano Segovia.',
+  roles_doc: [
+    { yr:'2017', rol:'Comprador (vía apoderada)', acto:'Segregación 75211168 ← Ana Elsy Bonilla (USD 1,400)' },
+  ]
+};
+
+// ── Glenda Carolina Lozano Segovia ──────────────────────────────────
+const p012937857 = {
+  dui:        '01293785-7',
+  nit:        '1123-250683-105-9',
+  nombre:     'Glenda Carolina Lozano Segovia',
+  aka:        '',
+  edad_ref:   '33 años (2017)',
+  profesion:  'Estudiante',
+  domicilio:  'Usulután',
+  notas:      'Apoderada de Juan Francisco Bonilla Solano en la compra de la Matrícula 75211168 (2017).',
+  roles_doc: [
+    { yr:'2017', rol:'Apoderada del comprador', acto:'Segregación 75211168' },
+  ]
+};
+
+// ── José Gilberto Guzmán Bermúdez ───────────────────────────────────
+const p007036476 = {
+  dui:        '00703647-6',
+  nit:        '1115-180447-101-4',
+  nombre:     'José Gilberto Guzmán Bermúdez',
+  aka:        '',
+  edad_ref:   '64 años (2011)',
+  profesion:  'Agricultor en pequeño',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Comprador de 3,500 m² segregados de la Matrícula 75033622 en 2011.',
+  roles_doc: [
+    { yr:'2011', rol:'Comprador', acto:'Segregación de 75033622 (USD 1,400)' },
+  ]
+};
+
+// ── José María Parada (hijo) ────────────────────────────────────────
+const p54714 = {
+  dui:        '54714',
+  nit:        '—',
+  nombre:     'José María Parada (hijo)',
+  aka:        '',
+  edad_ref:   '53 años (1986)',
+  profesion:  'Agricultor en pequeño',
+  domicilio:  'Santiago de María, Usulután',
+  notas:      'Vendedor original de la Matrícula 75033627 (70,000 m²) a Gabriel Bonilla Iraheta en 1986.',
+  roles_doc: [
+    { yr:'1986', rol:'Vendedor', acto:'75033627 → Gabriel Bonilla Iraheta (40,000 colones)' },
+  ]
+};
+
+// ── Josefa Bonilla Iraheta ──────────────────────────────────────────
+const p52012108 = {
+  dui:        '52012108',
+  nit:        '—',
+  nombre:     'Josefa Bonilla Iraheta',
+  aka:        '',
+  edad_ref:   '50 años (1983)',
+  profesion:  'Oficios domésticos',
+  domicilio:  'Jiquilisco, Usulután',
+  notas:      'Compradora de la Matrícula 75033629 (3,500 m²) en 1983. En 2005 ese inmueble pasó por herencia a Zoila Solano de Bonilla.',
+  roles_doc: [
+    { yr:'1983', rol:'Compradora', acto:'75033629 ← Juan Bonilla Ortega' },
+  ]
+};
+
+// ── ISTA ────────────────────────────────────────────────────────────
+const pISTA = {
+  dui:        '—',
+  nit:        '—',
+  nombre:     'Instituto Salvadoreño de Transformación Agraria (ISTA)',
+  aka:        'Representado por Dra. Magda Marina Aguilar Guerrero',
+  edad_ref:   '—',
+  profesion:  'Institución del Estado',
+  domicilio:  'San Salvador',
+  notas:      'Adjudicó el Solar "A" Manzana 21 (75033563) en 1977 a la familia Bonilla. Actuó a través del Presidente del ISTA, Coronel Efraín Tejada, representado por apoderada.',
+  roles_doc: [
+    { yr:'1977', rol:'Vendedora (institución)', acto:'Adjudicación 75033563 con promesa de venta' },
+  ]
+};
+
+// ── Diccionario de acceso rápido por DUI ────────────────────────────
+// Útil para búsquedas: personByDui['00069919-2'] → p000699192
+const personByDui = {
+  [p52006590.dui]:   p52006590,
+  [p006884973.dui]:  p006884973,
+  [p52006819.dui]:   p52006819,
+  [p000699192.dui]:  p000699192,
+  [p012898621.dui]:  p012898621,
+  [p040326844.dui]:  p040326844,
+  [p040326064.dui]:  p040326064,
+  [p031586762.dui]:  p031586762,
+  [p017605552.dui]:  p017605552,
+  [p050874051.dui]:  p050874051,
+  [p021365839.dui]:  p021365839,
+  [p035774943.dui]:  p035774943,
+  [p056909943.dui]:  p056909943,
+  [p068560616.dui]:  p068560616,
+  [p041154981.dui]:  p041154981,
+  [p042617801.dui]:  p042617801,
+  [p012937857.dui]:  p012937857,
+  [p007036476.dui]:  p007036476,
+  [p54714.dui]:      p54714,
+  [p52012108.dui]:   p52012108,
+  'ISTA':            pISTA,
+};
+
+// Lista para la vista Personas (orden alfabético)
+const allPersons = Object.values(personByDui);
+
+
+// ═══════════════════════════════════════════════════════════════════════
+//  SECCIÓN 2 — MATRÍCULAS
+//  Cada variable se nombra  mat + número sin guiones.
+// ═══════════════════════════════════════════════════════════════════════
+
+// ── 75033563 — Solar "A", Manzana 21 ───────────────────────────────
+const mat75033563 = {
+  id:         '75033563-00000',
+  nombre:     'Solar "A", Manzana 21',
+  tipo:       'independiente',
+  ubicacion:  'Polígono "Solares Tierra Blanca", Hacienda California, Jiquilisco',
+  area:       '714 m²',
+  origen:     null,
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'1977', tipo:'adj', txt:'Adjudicación ISTA → Gabriel Bonilla Iraheta + familia' },
+    { yr:'2007', tipo:'vta', txt:'Zoila Solano → Hernández Durán + Bonilla de Hdz. (66.67%)' },
+    { yr:'2007', tipo:'vta', txt:'Rosa Lidya Bonilla → Hernández Durán + Bonilla de Hdz.' },
+    { yr:'2008', tipo:'vta', txt:'Copropietarios → Zoila Solano de Bonilla (readquiere)' },
+    { yr:'2013', tipo:'vta', txt:'Zoila Solano → Hernández Durán + Bonilla de Hdz. (50% c/u)' },
+  ]
+};
+
+// ── 75033622 — Porción 14,000 m² ───────────────────────────────────
+const mat75033622 = {
+  id:         '75033622-00000',
+  nombre:     'Porción Lote #192 — 14,000 m²',
+  tipo:       'antecedente',
+  ubicacion:  'Pol. "B", Hacienda California, Cantón Tierra Blanca',
+  area:       '14,000 m² (luego 10,500 m²)',
+  origen:     null,
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'1985', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
+    { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+    { yr:'2011', tipo:'seg', txt:'Segregación 3,500 m² → José Gilberto Guzmán Bermúdez' },
+    { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
+  ]
+};
+
+// ── 75033625 — Porción 15,721 m² ───────────────────────────────────
+const mat75033625 = {
+  id:         '75033625-00000',
+  nombre:     'Porción Lote #192 — 15,721 m²',
+  tipo:       'antecedente',
+  ubicacion:  'Pol. "B", Hacienda California, Cantón Tierra Blanca',
+  area:       '15,721 m²',
+  origen:     null,
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'1993', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
+    { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
+  ]
+};
+
+// ── 75033626 — Parte 1,750 m² ───────────────────────────────────────
+const mat75033626 = {
+  id:         '75033626-00000',
+  nombre:     'Parte Hacienda California — 1,750 m²',
+  tipo:       'antecedente',
+  ubicacion:  'Lote #192, Pol. "B", Cantón Tierra Blanca',
+  area:       '1,750 m²',
+  origen:     null,
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'1984', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
+    { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+  ]
+};
+
+// ── 75033627 — Predio Principal 70,000 m² ──────────────────────────
+const mat75033627 = {
+  id:         '75033627-00000',
+  nombre:     'Predio Principal — 70,000 m²',
+  tipo:       'independiente',
+  ubicacion:  'Cantón Tierra Blanca, Hacienda California, Jiquilisco',
+  area:       '70,000 m²',
+  origen:     null,
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'1986', tipo:'vta', txt:'José María Parada → Gabriel Bonilla Iraheta (40,000 colones)' },
+    { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+    { yr:'2014', tipo:'vta', txt:'Zoila Solano → Noé Abrahán Hernández Durán (USD 4,000)' },
+    { yr:'2017', tipo:'vta', txt:'Noé Hernández (vía apoderada) → José Rigoberto Claros Zamora (USD 60,000)' },
+    { yr:'2017', tipo:'don', txt:'Claros Zamora dona a su hija María José Claros Claros (valor USD 50,000)' },
+    { yr:'2020', tipo:'vta', txt:'María José Claros Claros → Alejandro Escobar Iraheta (USD 60,000)' },
+  ]
+};
+
+// ── 75033628 — Porción 1ª 14,000 m² ───────────────────────────────
+const mat75033628 = {
+  id:         '75033628-00000',
+  nombre:     'Porción 1ª Lote #192 — 14,000 m²',
+  tipo:       'antecedente',
+  ubicacion:  'Pol. "B", Hacienda California, Jiquilisco',
+  area:       '14,000 m²',
+  origen:     null,
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'1983', tipo:'vta', txt:'Juan Bonilla → Gabriel Bonilla Iraheta' },
+    { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+    { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
+  ]
+};
+
+// ── 75033629 — Porción 2ª 3,500 m² ────────────────────────────────
+const mat75033629 = {
+  id:         '75033629-00000',
+  nombre:     'Porción 2ª Lote #192 — 3,500 m²',
+  tipo:       'antecedente',
+  ubicacion:  'Pol. "B", Hacienda California, Jiquilisco',
+  area:       '3,500 m²',
+  origen:     null,
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'1983', tipo:'vta', txt:'Juan Bonilla → Josefa Bonilla Iraheta' },
+    { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
+    { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
+  ]
+};
+
+// ── 75076668 — Lote segregado 4,105.21 m² ─────────────────────────
+const mat75076668 = {
+  id:         '75076668-00000',
+  nombre:     'Lote segregado — 4,105.21 m²',
+  tipo:       'segregada',
+  ubicacion:  'Segregado de Lote #192, Pol. "B", Hacienda California',
+  area:       '4,105.21 m²',
+  origen:     null,
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'2007', tipo:'seg', txt:'Segregación y venta: Zoila Solano → Barahona Torrez (proindivisión 50%)' },
+    { yr:'2015', tipo:'vta', txt:'Barahona Torrez → José Edgar Romero Escobar (USD 1,400)' },
+    { yr:'2015', tipo:'vta', txt:'Romero Escobar → Barahona Torrez (USD 10,000)' },
+  ]
+};
+
+// ── 75189732 — Predio Reunido 39,615.79 m² ────────────────────────
+const mat75189732 = {
+  id:         '75189732-00000',
+  nombre:     'Predio Reunido — 39,615.79 m²',
+  tipo:       'reunion',
+  ubicacion:  'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California',
+  area:       '39,615.79 m² (se reduce con cada segregación)',
+  origen:     null,
+  segregadas: ['75211168-00000', '75216784-00000', '75244178-00000'],
+  reunidas:   ['75033622-00000', '75033625-00000', '75033628-00000', '75033629-00000'],
+  historia: [
+    { yr:'2014', tipo:'reu', txt:'Reunión de matrículas → Ana Elsy Bonilla de Hernández (100%)' },
+    { yr:'2017', tipo:'seg', txt:'Segregación 9,526.83 m² → Juan Francisco Bonilla Solano (USD 1,400)', mat_seg:'75211168-00000' },
+    { yr:'2017', tipo:'seg', txt:'Segregación 635.87 m² → Blanca Mirian Cárcamo + José Benjamín Torres (USD 1,300)', mat_seg:'75216784-00000' },
+    { yr:'2022', tipo:'seg', txt:'Segregación 362.61 m² → José Mauricio Flores (USD 1,500)', mat_seg:'75244178-00000' },
+  ]
+};
+
+// ── 75211168 — Segregado 9,526.83 m² ──────────────────────────────
+const mat75211168 = {
+  id:         '75211168-00000',
+  nombre:     'Segregado — 9,526.83 m²',
+  tipo:       'segregada',
+  ubicacion:  'Lote #192, Pol. "B", Cantón Tierra Blanca',
+  area:       '9,526.83 m²',
+  origen:     '75189732-00000',
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'2017', tipo:'seg', txt:'Segregada de 75189732 → Juan Francisco Bonilla Solano (USD 1,400)' },
+  ]
+};
+
+// ── 75216784 — Segregado 635.87 m² ────────────────────────────────
+const mat75216784 = {
+  id:         '75216784-00000',
+  nombre:     'Segregado — 635.87 m²',
+  tipo:       'segregada',
+  ubicacion:  'Lote #192, Pol. "B", Cantón Tierra Blanca',
+  area:       '635.87 m²',
+  origen:     '75189732-00000',
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'2017', tipo:'seg', txt:'Segregada de 75189732 → Blanca Mirian Cárcamo + José Benjamín Torres (50% c/u, USD 1,300)' },
+    { yr:'2023', tipo:'vta', txt:'Cárcamo / Torres → María Marlene Torres Cárcamo (USD 10,000)' },
+  ]
+};
+
+// ── 75244178 — Segregado 362.61 m² ────────────────────────────────
+const mat75244178 = {
+  id:         '75244178-00000',
+  nombre:     'Segregado — 362.61 m²',
+  tipo:       'segregada',
+  ubicacion:  'Lote #192, Pol. "B", Cantón Tierra Blanca',
+  area:       '362.61 m²',
+  origen:     '75189732-00000',
+  segregadas: [],
+  reunidas:   [],
+  historia: [
+    { yr:'2022', tipo:'seg', txt:'Segregada de 75189732 → José Mauricio Flores (USD 1,500)' },
+  ]
+};
+
+// ── Diccionario de acceso rápido por ID de matrícula ───────────────
+const propById = {
+  [mat75033563.id]: mat75033563,
+  [mat75033622.id]: mat75033622,
+  [mat75033625.id]: mat75033625,
+  [mat75033626.id]: mat75033626,
+  [mat75033627.id]: mat75033627,
+  [mat75033628.id]: mat75033628,
+  [mat75033629.id]: mat75033629,
+  [mat75076668.id]: mat75076668,
+  [mat75189732.id]: mat75189732,
+  [mat75211168.id]: mat75211168,
+  [mat75216784.id]: mat75216784,
+  [mat75244178.id]: mat75244178,
+};
+
+
+// ═══════════════════════════════════════════════════════════════════════
+//  SECCIÓN 3 — ACTOS REGISTRALES
+//  Los campos vendedor/comprador referencian las variables de persona.
+// ═══════════════════════════════════════════════════════════════════════
+
 const acts = [
   {
     year: 1977,
     tipo: 'adjudicacion',
     label: 'Adjudicación por ISTA',
-    matricula: '75033563-00000',
+    matricula: mat75033563.id,
     area: 714,
-    ubicacion: 'Solar "A", Manzana 21, Polígono "Solares Tierra Blanca", Hacienda California, Jiquilisco',
-    vendedor: [{ nombre: 'Instituto Salvadoreño de Transformación Agraria (ISTA)', rep: 'Dra. Magda Marina Aguilar Guerrero' }],
+    ubicacion: mat75033563.ubicacion,
+    vendedor: [
+      { nombre: pISTA.nombre, rep: pISTA.aka }
+    ],
     comprador: [
-      { nombre: 'Gabriel Bonilla Iraheta', dui: '52000456' },
-      { nombre: 'Zoila Solano de Bonilla', dui: '52017272' },
-      { nombre: 'Rosa Lidya Bonilla Solano (menor)', nota: 'Representada por sus padres' }
+      { nombre: p52006590.nombre, dui: p52006590.dui },
+      { nombre: p006884973.nombre, dui: p006884973.dui },
+      { nombre: p040326844.nombre, nota: 'Representada por sus padres (menor)' }
     ],
     precio: '255.25 colones',
     escritura: '— (1977)',
@@ -584,11 +961,11 @@ const acts = [
     year: 1983,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033628',
-    matricula: '75033628-00000',
+    matricula: mat75033628.id,
     area: 14000,
-    ubicacion: 'Porción primera, Lote #192, Pol. "B", Hacienda California, Jiquilisco',
-    vendedor: [{ nombre: 'Juan Bonilla (Juan Bonilla Ortega)', dui: '52006819' }],
-    comprador: [{ nombre: 'Gabriel Bonilla Iraheta', dui: '52006595' }],
+    ubicacion: mat75033628.ubicacion,
+    vendedor: [{ nombre: p52006819.nombre, dui: p52006819.dui }],
+    comprador: [{ nombre: p52006590.nombre, dui: p52006590.dui }],
     precio: '—',
     escritura: '1983',
     inscripcion: '—',
@@ -598,11 +975,11 @@ const acts = [
     year: 1983,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033629',
-    matricula: '75033629-00000',
+    matricula: mat75033629.id,
     area: 3500,
-    ubicacion: 'Porción segunda, Lote #192, Pol. "B", Hacienda California, Jiquilisco',
-    vendedor: [{ nombre: 'Juan Bonilla (Juan Bonilla Ortega)', dui: '52006819' }],
-    comprador: [{ nombre: 'Josefa Bonilla Iraheta', dui: '52012108' }],
+    ubicacion: mat75033629.ubicacion,
+    vendedor: [{ nombre: p52006819.nombre, dui: p52006819.dui }],
+    comprador: [{ nombre: p52012108.nombre, dui: p52012108.dui }],
     precio: '—',
     escritura: '1983',
     inscripcion: '—',
@@ -612,11 +989,11 @@ const acts = [
     year: 1984,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033626',
-    matricula: '75033626-00000',
+    matricula: mat75033626.id,
     area: 1750,
-    ubicacion: 'Parte de Hacienda California, Lote #192, Pol. "B", Cantón Tierra Blanca',
-    vendedor: [{ nombre: 'Juan Bonilla Ortega', dui: '52006819', nota: 'No sabía firmar, huella digital' }],
-    comprador: [{ nombre: 'Gabriel Bonilla Iraheta', dui: '52006590' }],
+    ubicacion: mat75033626.ubicacion,
+    vendedor: [{ nombre: p52006819.nombre, dui: p52006819.dui, nota: 'No sabía firmar, huella digital' }],
+    comprador: [{ nombre: p52006590.nombre, dui: p52006590.dui }],
     precio: '—',
     escritura: '1984',
     inscripcion: '—',
@@ -626,11 +1003,11 @@ const acts = [
     year: 1985,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033622',
-    matricula: '75033622-00000',
+    matricula: mat75033622.id,
     area: 14000,
-    ubicacion: 'Lote #192, Pol. "B", Hacienda California, Cantón Tierra Blanca',
-    vendedor: [{ nombre: 'Juan Bonilla Ortega', dui: '52006819', nota: 'No sabía firmar' }],
-    comprador: [{ nombre: 'Gabriel Bonilla Iraheta', dui: '52006590' }],
+    ubicacion: mat75033622.ubicacion,
+    vendedor: [{ nombre: p52006819.nombre, dui: p52006819.dui, nota: 'No sabía firmar' }],
+    comprador: [{ nombre: p52006590.nombre, dui: p52006590.dui }],
     precio: '—',
     escritura: '1985',
     inscripcion: '—',
@@ -640,11 +1017,11 @@ const acts = [
     year: 1986,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033627',
-    matricula: '75033627-00000',
+    matricula: mat75033627.id,
     area: 70000,
-    ubicacion: 'Cantón Tierra Blanca, Jiquilisco',
-    vendedor: [{ nombre: 'José María Parada (hijo)', dui: '54714' }],
-    comprador: [{ nombre: 'Gabriel Bonilla Iraheta', dui: '52006590' }],
+    ubicacion: mat75033627.ubicacion,
+    vendedor: [{ nombre: p54714.nombre, dui: p54714.dui }],
+    comprador: [{ nombre: p52006590.nombre, dui: p52006590.dui }],
     precio: '40,000 colones',
     escritura: '1986',
     inscripcion: '—',
@@ -654,11 +1031,11 @@ const acts = [
     year: 1993,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033625',
-    matricula: '75033625-00000',
+    matricula: mat75033625.id,
     area: 15721,
-    ubicacion: 'Lote #192, Pol. "B", Hacienda California, Cantón Tierra Blanca',
-    vendedor: [{ nombre: 'Juan Bonilla Ortega', dui: '52006819', nota: 'No sabía firmar, huella digital' }],
-    comprador: [{ nombre: 'Gabriel Bonilla Iraheta', dui: '52006590' }],
+    ubicacion: mat75033625.ubicacion,
+    vendedor: [{ nombre: p52006819.nombre, dui: p52006819.dui, nota: 'No sabía firmar, huella digital' }],
+    comprador: [{ nombre: p52006590.nombre, dui: p52006590.dui }],
     precio: '10,000 colones',
     escritura: '1993',
     inscripcion: '—',
@@ -671,8 +1048,8 @@ const acts = [
     matricula: '75033622 / 75033625 / 75033626 / 75033627 / 75033628 / 75033629',
     area: null,
     ubicacion: 'Varias — Hacienda California, Jiquilisco',
-    vendedor: [{ nombre: 'Gabriel Bonilla Iraheta (fallecido)', nota: 'Causante' }],
-    comprador: [{ nombre: 'Zoila Solano de Bonilla', nota: 'Cónyuge sobreviviente y heredera' }],
+    vendedor: [{ nombre: p52006590.nombre, nota: 'Causante (fallecido)' }],
+    comprador: [{ nombre: p006884973.nombre, nota: 'Cónyuge sobreviviente y heredera' }],
     precio: '—',
     escritura: '2005',
     inscripcion: '2005',
@@ -682,13 +1059,13 @@ const acts = [
     year: 2007,
     tipo: 'compraventa',
     label: 'Compraventa Solar — Matrícula 75033563 (acto 1)',
-    matricula: '75033563-00000',
+    matricula: mat75033563.id,
     area: 714,
-    ubicacion: 'Solar "A", Manzana 21, Polígono "Solares Tierra Blanca"',
-    vendedor: [{ nombre: 'Zoila Solano de Bonilla', dui: '00688497-3', nota: 'No sabía firmar' }],
+    ubicacion: mat75033563.ubicacion,
+    vendedor: [{ nombre: p006884973.nombre, dui: p006884973.dui, nota: 'No sabía firmar' }],
     comprador: [
-      { nombre: 'Noé Abrahán Hernández Durán', dui: '01289862-1' },
-      { nombre: 'Ana Elsy Bonilla de Hernández', dui: '00069919-2' }
+      { nombre: p012898621.nombre, dui: p012898621.dui },
+      { nombre: p000699192.nombre, dui: p000699192.dui }
     ],
     precio: 'USD 1,000.00',
     escritura: '15/09/2007',
@@ -699,13 +1076,13 @@ const acts = [
     year: 2007,
     tipo: 'compraventa',
     label: 'Compraventa Solar — Matrícula 75033563 (acto 2)',
-    matricula: '75033563-00000',
+    matricula: mat75033563.id,
     area: 714,
-    ubicacion: 'Solar "A", Manzana 21, Polígono "Solares Tierra Blanca"',
-    vendedor: [{ nombre: 'Rosa Lidya Bonilla Solano', dui: '04032684-4' }],
+    ubicacion: mat75033563.ubicacion,
+    vendedor: [{ nombre: p040326844.nombre, dui: p040326844.dui }],
     comprador: [
-      { nombre: 'Noé Abrahán Hernández Durán', dui: '01289862-1' },
-      { nombre: 'Ana Elsy Bonilla de Hernández', dui: '00069919-2' }
+      { nombre: p012898621.nombre, dui: p012898621.dui },
+      { nombre: p000699192.nombre, dui: p000699192.dui }
     ],
     precio: 'USD 1,000.00',
     escritura: '15/09/2007',
@@ -716,13 +1093,13 @@ const acts = [
     year: 2007,
     tipo: 'segregacion',
     label: 'Segregación por Venta — Matrícula 75076668',
-    matricula: '75076668-00000',
+    matricula: mat75076668.id,
     area: 4105.21,
-    ubicacion: 'Segregado de Lote #192, Pol. "B", Hacienda California',
-    vendedor: [{ nombre: 'Zoila Solano de Bonilla', nota: 'Propietaria heredera de Gabriel Bonilla Iraheta' }],
+    ubicacion: mat75076668.ubicacion,
+    vendedor: [{ nombre: p006884973.nombre, nota: 'Propietaria heredera de Gabriel Bonilla Iraheta' }],
     comprador: [
-      { nombre: 'Rosa Lidya Bonilla de Barahona', dui: '04032684-4' },
-      { nombre: 'Ricardo de Jesús Barahona Torrez', dui: '04032606-4' }
+      { nombre: p040326844.nombre, dui: p040326844.dui },
+      { nombre: p040326064.nombre, dui: p040326064.dui }
     ],
     precio: 'USD 1,400.00',
     escritura: '26/07/2007',
@@ -733,14 +1110,14 @@ const acts = [
     year: 2008,
     tipo: 'compraventa',
     label: 'Compraventa Solar — Matrícula 75033563 (acto 3)',
-    matricula: '75033563-00000',
+    matricula: mat75033563.id,
     area: 714,
-    ubicacion: 'Solar "A", Manzana 21, Polígono "Solares Tierra Blanca"',
+    ubicacion: mat75033563.ubicacion,
     vendedor: [
-      { nombre: 'Noé Abrahán Hernández Durán', dui: '00069919-2' },
-      { nombre: 'Ana Elsy Bonilla de Hernández', dui: '01289862-1' }
+      { nombre: p012898621.nombre, dui: p012898621.dui },
+      { nombre: p000699192.nombre, dui: p000699192.dui }
     ],
-    comprador: [{ nombre: 'Zoila Solano de Bonilla', dui: '00688497-3', nota: 'No sabía firmar' }],
+    comprador: [{ nombre: p006884973.nombre, dui: p006884973.dui, nota: 'No sabía firmar' }],
     precio: 'USD 1,000.00',
     escritura: '11/02/2008',
     inscripcion: '11/06/2008',
@@ -750,11 +1127,11 @@ const acts = [
     year: 2011,
     tipo: 'segregacion',
     label: 'Segregación — Matrícula 75033622 (3,500 m²)',
-    matricula: '75033622-00000',
+    matricula: mat75033622.id,
     area: 14000,
-    ubicacion: 'Lote #192, Pol. "B", Hacienda California',
-    vendedor: [{ nombre: 'Zoila Solano de Bonilla', dui: '00688497-3', nota: 'No sabía firmar' }],
-    comprador: [{ nombre: 'José Gilberto Guzmán Bermúdez', dui: '00703647-6' }],
+    ubicacion: mat75033622.ubicacion,
+    vendedor: [{ nombre: p006884973.nombre, dui: p006884973.dui, nota: 'No sabía firmar' }],
+    comprador: [{ nombre: p007036476.nombre, dui: p007036476.dui }],
     precio: 'USD 1,400.00',
     escritura: '18/07/2011',
     inscripcion: '31/08/2011',
@@ -764,13 +1141,13 @@ const acts = [
     year: 2013,
     tipo: 'compraventa',
     label: 'Compraventa Solar — Matrícula 75033563',
-    matricula: '75033563-00000',
+    matricula: mat75033563.id,
     area: 714,
-    ubicacion: 'Solar "A", Manzana 21, Polígono "Solares Tierra Blanca"',
-    vendedor: [{ nombre: 'Zoila Solano de Bonilla', dui: '00688497-3', nota: 'No sabía firmar' }],
+    ubicacion: mat75033563.ubicacion,
+    vendedor: [{ nombre: p006884973.nombre, dui: p006884973.dui, nota: 'No sabía firmar' }],
     comprador: [
-      { nombre: 'Noé Abrahán Hernández Durán', dui: '01289862-1' },
-      { nombre: 'Ana Elsy Bonilla de Hernández', dui: '00069919-2' }
+      { nombre: p012898621.nombre, dui: p012898621.dui },
+      { nombre: p000699192.nombre, dui: p000699192.dui }
     ],
     precio: 'USD 1,400.00',
     escritura: '16/01/2013',
@@ -781,11 +1158,11 @@ const acts = [
     year: 2014,
     tipo: 'reunion',
     label: 'Reunión de Inmuebles — Matrícula 75189732',
-    matricula: '75189732-00000',
+    matricula: mat75189732.id,
     area: 39615.79,
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California, Jiquilisco',
+    ubicacion: mat75189732.ubicacion,
     vendedor: [],
-    comprador: [{ nombre: 'Ana Elsy Bonilla de Hernández', nota: '100% de la propiedad' }],
+    comprador: [{ nombre: p000699192.nombre, nota: '100% de la propiedad' }],
     precio: '—',
     escritura: '09/04/2014',
     inscripcion: '09/04/2014',
@@ -795,13 +1172,13 @@ const acts = [
     year: 2014,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75076668',
-    matricula: '75076668-00000',
+    matricula: mat75076668.id,
     area: 4105.21,
-    ubicacion: 'Segregado de Lote #192, Pol. "B", Hacienda California',
-    vendedor: [{ nombre: 'José Edgar Romero Escobar', dui: '03158676-2' }],
+    ubicacion: mat75076668.ubicacion,
+    vendedor: [{ nombre: p031586762.nombre, dui: p031586762.dui }],
     comprador: [
-      { nombre: 'Rosa Lidya Bonilla de Barahona', dui: '04032684-4' },
-      { nombre: 'Ricardo de Jesús Barahona Torrez', dui: '04032606-4' }
+      { nombre: p040326844.nombre, dui: p040326844.dui },
+      { nombre: p040326064.nombre, dui: p040326064.dui }
     ],
     precio: 'USD 10,000.00',
     escritura: '09/02/2015',
@@ -812,11 +1189,11 @@ const acts = [
     year: 2014,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033627 (Zoila → Noé)',
-    matricula: '75033627-00000',
+    matricula: mat75033627.id,
     area: 70000,
-    ubicacion: 'Cantón Tierra Blanca, Hacienda California, Jiquilisco',
-    vendedor: [{ nombre: 'Zoila Solano de Bonilla', dui: '00688497-3', nota: 'No sabía firmar' }],
-    comprador: [{ nombre: 'Noé Abrahán Hernández Durán', dui: '01289862-1' }],
+    ubicacion: mat75033627.ubicacion,
+    vendedor: [{ nombre: p006884973.nombre, dui: p006884973.dui, nota: 'No sabía firmar' }],
+    comprador: [{ nombre: p012898621.nombre, dui: p012898621.dui }],
     precio: 'USD 4,000.00',
     escritura: '03/10/2014',
     inscripcion: '10/11/2014',
@@ -826,14 +1203,14 @@ const acts = [
     year: 2015,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75076668 (Barahona → Romero)',
-    matricula: '75076668-00000',
+    matricula: mat75076668.id,
     area: 4105.21,
-    ubicacion: 'Lote #192, Pol. "B", Hacienda California, Cantón Tierra Blanca',
+    ubicacion: mat75076668.ubicacion,
     vendedor: [
-      { nombre: 'Rosa Lidya Bonilla de Barahona', dui: '04032684-4' },
-      { nombre: 'Ricardo de Jesús Barahona Torrez', dui: '04032606-4' }
+      { nombre: p040326844.nombre, dui: p040326844.dui },
+      { nombre: p040326064.nombre, dui: p040326064.dui }
     ],
-    comprador: [{ nombre: 'José Edgar Romero Escobar', dui: '03158676-2' }],
+    comprador: [{ nombre: p031586762.nombre, dui: p031586762.dui }],
     precio: 'USD 1,400.00',
     escritura: '19/01/2015',
     inscripcion: '05/02/2015',
@@ -843,11 +1220,11 @@ const acts = [
     year: 2017,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75189732 (Segreg. 75211168)',
-    matricula: '75189732-00000 → 75211168-00000',
+    matricula: mat75189732.id + ' → ' + mat75211168.id,
     area: 9526.83,
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California',
-    vendedor: [{ nombre: 'Ana Elsy Bonilla de Hernández', dui: '00069919-2', nota: 'Apoderada: Zoila Solano de Bonilla' }],
-    comprador: [{ nombre: 'Juan Francisco Bonilla Solano', dui: '04261780-1', nota: 'Apoderada: Glenda Carolina Lozano Segovia' }],
+    ubicacion: mat75189732.ubicacion,
+    vendedor: [{ nombre: p000699192.nombre, dui: p000699192.dui, nota: 'Apoderada: Zoila Solano de Bonilla' }],
+    comprador: [{ nombre: p042617801.nombre, dui: p042617801.dui, nota: 'Apoderada: Glenda Carolina Lozano Segovia' }],
     precio: 'USD 1,400.00',
     escritura: '15/02/2017',
     inscripcion: '12/05/2017',
@@ -857,11 +1234,11 @@ const acts = [
     year: 2017,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033627 (Noé → Claros Zamora)',
-    matricula: '75033627-00000',
+    matricula: mat75033627.id,
     area: 70000,
-    ubicacion: 'Cantón Tierra Blanca, Hacienda California, Jiquilisco',
-    vendedor: [{ nombre: 'Noé Abrahán Hernández Durán', dui: '01289862-1', nota: 'Apoderada especial: Zoila Solano de Bonilla' }],
-    comprador: [{ nombre: 'José Rigoberto Claros Zamora', dui: '01760555-2' }],
+    ubicacion: mat75033627.ubicacion,
+    vendedor: [{ nombre: p012898621.nombre, dui: p012898621.dui, nota: 'Apoderada especial: Zoila Solano de Bonilla' }],
+    comprador: [{ nombre: p017605552.nombre, dui: p017605552.dui }],
     precio: 'USD 60,000.00',
     escritura: '25/07/2017',
     inscripcion: '26/07/2017',
@@ -871,11 +1248,11 @@ const acts = [
     year: 2017,
     tipo: 'donacion',
     label: 'Donación Irrevocable — Matrícula 75033627',
-    matricula: '75033627-00000',
+    matricula: mat75033627.id,
     area: 70000,
-    ubicacion: 'Cantón Tierra Blanca, Hacienda California, Jiquilisco',
-    vendedor: [{ nombre: 'José Rigoberto Claros Zamora', dui: '01760555-2', nota: 'Donante' }],
-    comprador: [{ nombre: 'María José Claros Claros', dui: '05087405-1', nota: 'Donataria — hija del donante' }],
+    ubicacion: mat75033627.ubicacion,
+    vendedor: [{ nombre: p017605552.nombre, dui: p017605552.dui, nota: 'Donante' }],
+    comprador: [{ nombre: p050874051.nombre, dui: p050874051.dui, nota: 'Donataria — hija del donante' }],
     precio: 'USD 50,000.00 (valor estimado)',
     escritura: '25/08/2017',
     inscripcion: '21/09/2017',
@@ -885,13 +1262,13 @@ const acts = [
     year: 2017,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75189732 (Segreg. 75216784)',
-    matricula: '75189732-00000 → 75216784-00000',
+    matricula: mat75189732.id + ' → ' + mat75216784.id,
     area: 635.87,
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California',
-    vendedor: [{ nombre: 'Ana Elsy Bonilla de Hernández', dui: '00069919-2' }],
+    ubicacion: mat75189732.ubicacion,
+    vendedor: [{ nombre: p000699192.nombre, dui: p000699192.dui }],
     comprador: [
-      { nombre: 'Blanca Mirian Cárcamo de Torres', dui: '03577494-3' },
-      { nombre: 'José Benjamín Torres', dui: '05690994-3' }
+      { nombre: p035774943.nombre, dui: p035774943.dui },
+      { nombre: p056909943.nombre, dui: p056909943.dui }
     ],
     precio: 'USD 1,300.00',
     escritura: '20/11/2017',
@@ -902,11 +1279,11 @@ const acts = [
     year: 2020,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75033627',
-    matricula: '75033627-00000',
+    matricula: mat75033627.id,
     area: 70000,
-    ubicacion: 'Cantón Tierra Blanca, Hacienda California, Jiquilisco',
-    vendedor: [{ nombre: 'María José Claros Claros', dui: '05087405-1' }],
-    comprador: [{ nombre: 'Alejandro Escobar Iraheta', dui: '02136583-9' }],
+    ubicacion: mat75033627.ubicacion,
+    vendedor: [{ nombre: p050874051.nombre, dui: p050874051.dui }],
+    comprador: [{ nombre: p021365839.nombre, dui: p021365839.dui }],
     precio: 'USD 60,000.00',
     escritura: '01/09/2020',
     inscripcion: '28/10/2020',
@@ -916,11 +1293,11 @@ const acts = [
     year: 2022,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75189732 (Segreg. 75244178)',
-    matricula: '75189732-00000 → 75244178-00000',
+    matricula: mat75189732.id + ' → ' + mat75244178.id,
     area: 362.61,
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California',
-    vendedor: [{ nombre: 'Ana Elsy Bonilla de Hernández', dui: '00069919-2', nota: 'Apoderada: Zoila Solano de Bonilla' }],
-    comprador: [{ nombre: 'José Mauricio Flores', dui: '04115498-1' }],
+    ubicacion: mat75189732.ubicacion,
+    vendedor: [{ nombre: p000699192.nombre, dui: p000699192.dui, nota: 'Apoderada: Zoila Solano de Bonilla' }],
+    comprador: [{ nombre: p041154981.nombre, dui: p041154981.dui }],
     precio: 'USD 1,500.00',
     escritura: '27/09/2022',
     inscripcion: '04/11/2022',
@@ -930,14 +1307,14 @@ const acts = [
     year: 2023,
     tipo: 'compraventa',
     label: 'Compraventa — Matrícula 75216784',
-    matricula: '75216784-00000',
+    matricula: mat75216784.id,
     area: 635.87,
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California',
+    ubicacion: mat75216784.ubicacion,
     vendedor: [
-      { nombre: 'Blanca Mirian Cárcamo de Torres', dui: '03577494-3' },
-      { nombre: 'José Benjamín Torres', dui: '05690994-3' }
+      { nombre: p035774943.nombre, dui: p035774943.dui },
+      { nombre: p056909943.nombre, dui: p056909943.dui }
     ],
-    comprador: [{ nombre: 'María Marlene Torres Cárcamo', dui: '06856061-6' }],
+    comprador: [{ nombre: p068560616.nombre, dui: p068560616.dui }],
     precio: 'USD 10,000.00',
     escritura: '03/04/2023',
     inscripcion: '14/04/2023',
@@ -945,9 +1322,31 @@ const acts = [
   }
 ];
 
-// ─────────────────────────────────────────────
-//  RENDER TIMELINE
-// ─────────────────────────────────────────────
+
+// ═══════════════════════════════════════════════════════════════════════
+//  SECCIÓN 4 — COLORES Y ETIQUETAS (sin cambios)
+// ═══════════════════════════════════════════════════════════════════════
+
+const histColor = {
+  vta:'#8b3a0f', seg:'#8a4a9b', reu:'#4a6fa5',
+  her:'#c49a2a', don:'#2d5a27', adj:'#4a7a8a'
+};
+const histLabel = {
+  vta:'Compraventa', seg:'Segregación', reu:'Reunión',
+  her:'Herencia', don:'Donación', adj:'Adjudicación'
+};
+const tipoBadge = {
+  independiente: { label:'Independiente',        color:'#4a7a8a' },
+  antecedente:   { label:'Antecedente (reunida)', color:'#c49a2a' },
+  segregada:     { label:'Segregada',             color:'#8a4a9b' },
+  reunion:       { label:'Producto de Reunión',   color:'#4a6fa5' },
+};
+
+
+// ═══════════════════════════════════════════════════════════════════════
+//  SECCIÓN 5 — RENDER FUNCIONES (idénticas al original)
+// ═══════════════════════════════════════════════════════════════════════
+
 function typeColor(tipo) {
   const map = { compraventa:'compraventa', donacion:'donacion', herencia:'herencia', reunion:'reunion', segregacion:'segregacion', adjudicacion:'herencia' };
   return map[tipo] || '';
@@ -955,15 +1354,9 @@ function typeColor(tipo) {
 
 function renderTimeline() {
   const container = document.getElementById('timeline-container');
-  const sorted = [...acts].sort((a,b) => a.year - b.year);
-  sorted.forEach((act, i) => {
+  [...acts].sort((a,b) => a.year - b.year).forEach((act, i) => {
     const div = document.createElement('div');
     div.className = 'tl-entry';
-
-    const vendLabel = act.tipo === 'reunion' ? '' :
-      (act.vendedor.length ? act.vendedor.map(v=>v.nombre).join(', ') : '—');
-    const comprLabel = act.comprador.map(c=>c.nombre).join(', ') || '—';
-
     div.innerHTML = `
       <div class="tl-dot ${typeColor(act.tipo)}"></div>
       <div class="tl-card" onclick="toggleDetail(${i})">
@@ -981,14 +1374,14 @@ function renderTimeline() {
               <div class="person-role">${act.tipo==='donacion'?'Donante':'Vendedor / Tradente'}</div>
               ${act.vendedor.map(v=>`
                 <div class="person-name">${v.nombre}</div>
-                <div class="person-data">${v.dui?'DUI: '+v.dui+'<br>':''} ${v.rep?'Rep: '+v.rep+'<br>':''} ${v.nota?v.nota:''}</div>
+                <div class="person-data">${v.dui?'DUI: '+v.dui+'<br>':''}${v.rep?'Rep: '+v.rep+'<br>':''}${v.nota||''}</div>
               `).join('')}
             </div>` : ''}
             <div class="person-box">
               <div class="person-role">${act.tipo==='donacion'?'Donatario/a':'Comprador / Adquirente'}</div>
               ${act.comprador.map(c=>`
                 <div class="person-name">${c.nombre}</div>
-                <div class="person-data">${c.dui?'DUI: '+c.dui+'<br>':''} ${c.nota?c.nota:''}</div>
+                <div class="person-data">${c.dui?'DUI: '+c.dui+'<br>':''}${c.nota||''}</div>
               `).join('')}
             </div>
           </div>
@@ -999,25 +1392,19 @@ function renderTimeline() {
             <div class="date-item"><span class="date-label">Ubicación</span>${act.ubicacion}</div>
           </div>
         </div>
-      </div>
-    `;
+      </div>`;
     container.appendChild(div);
   });
 }
 
 function toggleDetail(i) {
-  const el = document.getElementById('detail-'+i);
-  el.classList.toggle('open');
+  document.getElementById('detail-'+i).classList.toggle('open');
 }
 
-// ─────────────────────────────────────────────
-//  RENDER MATRIX
-// ─────────────────────────────────────────────
 function renderMatrix() {
   const tbody = document.getElementById('matrix-body');
   const typeLabel = { compraventa:'Compraventa', donacion:'Donación', herencia:'Herencia', reunion:'Reunión', segregacion:'Segregación', adjudicacion:'Adjudicación' };
   const badgeClass = { compraventa:'', donacion:'don', herencia:'her', reunion:'reu', segregacion:'seg', adjudicacion:'her' };
-
   [...acts].sort((a,b)=>a.year-b.year).forEach(act => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
@@ -1029,345 +1416,19 @@ function renderMatrix() {
       <td>${act.comprador.map(c=>c.nombre).join('<br>')||'—'}</td>
       <td class="mono">${act.precio}</td>
       <td class="mono">${act.escritura}</td>
-      <td class="mono">${act.inscripcion}</td>
-    `;
+      <td class="mono">${act.inscripcion}</td>`;
     tbody.appendChild(tr);
   });
 }
 
-// ─────────────────────────────────────────────
-//  PERSONAS — perfiles completos del documento
-// ─────────────────────────────────────────────
-const personProfiles = {
-  '00069919-2': {
-    nombre: 'Ana Elsy Bonilla de Hernández',
-    aka: '',
-    edad_ref: '42 años (2014) / 45 años (2017) / 49 años (2022)',
-    profesion: 'Ama de Casa / Comerciante (varía por acto)',
-    domicilio: 'Santa Tecla, La Libertad (luego Soyapango, San Salvador)',
-    dui: '00069919-2',
-    nit: '11108-21271-101-8',
-    notas: 'Titular resultante de la reunión de inmuebles (Matrícula 75189732, 2014). Actúa como vendedora en múltiples segregaciones. En varios actos la representa como apoderada Zoila Solano de Bonilla.',
-    roles_doc: [
-      { yr:'2007', rol:'Compradora (proindivisión 33.33%)', acto:'Solar 75033563' },
-      { yr:'2008', rol:'Vendedora (copropietaria)', acto:'Solar 75033563' },
-      { yr:'2013', rol:'Compradora (50%)', acto:'Solar 75033563' },
-      { yr:'2014', rol:'Titular única (100%)', acto:'Reunión Matrícula 75189732' },
-      { yr:'2017', rol:'Vendedora (vía apoderada)', acto:'Segregación 75211168' },
-      { yr:'2017', rol:'Vendedora', acto:'Segregación 75216784' },
-      { yr:'2022', rol:'Vendedora (vía apoderada)', acto:'Segregación 75244178' },
-    ]
-  },
-  '00688497-3': {
-    nombre: 'Zoila Solano de Bonilla',
-    aka: 'Zoila Solano',
-    edad_ref: '29 años (1977) / 60 años (2008) / 66 años (2014) / 70 años (2017)',
-    profesion: 'Oficios domésticos',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '00688497-3',
-    nit: '1108-270447-101-5',
-    notas: 'Cónyuge sobreviviente de Gabriel Bonilla Iraheta. Heredó las matrículas de la familia en 2005. No sabía firmar; dejó huella digital en múltiples actos. Actuó como apoderada especial de Noé Hernández Durán (poder 2014) y como apoderada de Ana Elsy Bonilla de Hernández.',
-    roles_doc: [
-      { yr:'1977', rol:'Compradora (con esposo)', acto:'Adjudicación ISTA 75033563' },
-      { yr:'2005', rol:'Heredera universal', acto:'Traspasos herencia (múltiples matrículas)' },
-      { yr:'2007', rol:'Tradente (segregación)', acto:'75076668' },
-      { yr:'2007', rol:'Vendedora', acto:'Solar 75033563 (acto 1)' },
-      { yr:'2008', rol:'Compradora', acto:'Solar 75033563 (readquiere)' },
-      { yr:'2011', rol:'Vendedora (tradente)', acto:'Segregación 75033622' },
-      { yr:'2013', rol:'Vendedora', acto:'Solar 75033563' },
-      { yr:'2014', rol:'Vendedora', acto:'75033627 → Noé Hernández' },
-      { yr:'2014', rol:'Vendedora (apoderada de Ana Elsy)', acto:'Compraventa 75189732' },
-      { yr:'2017', rol:'Apoderada especial de Noé Hernández', acto:'Venta 75033627 → Claros Zamora' },
-      { yr:'2022', rol:'Apoderada de Ana Elsy', acto:'Segregación 75244178' },
-    ]
-  },
-  '52006590': {
-    nombre: 'Gabriel Bonilla Iraheta',
-    aka: 'José Gabriel Bonilla',
-    edad_ref: '39 años (1977) / 46 años (1983) / 47 años (1984) / 48 años (1985) / 49 años (1986) / 56 años (1993)',
-    profesion: 'Agricultor en pequeño',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '52006590',
-    nit: '—',
-    notas: 'Figura central de la primera generación. Adquirió todas las porciones del Lote #192 entre 1977 y 1993. Falleció antes de 2005, año en que sus bienes pasaron por herencia a su cónyuge Zoila Solano de Bonilla.',
-    roles_doc: [
-      { yr:'1977', rol:'Comprador (con familia)', acto:'Adjudicación ISTA 75033563' },
-      { yr:'1983', rol:'Comprador', acto:'75033628 y 75033629' },
-      { yr:'1984', rol:'Comprador', acto:'75033626' },
-      { yr:'1985', rol:'Comprador', acto:'75033622' },
-      { yr:'1986', rol:'Comprador', acto:'75033627 (70,000 m²)' },
-      { yr:'1993', rol:'Comprador', acto:'75033625 (15,721 m²)' },
-    ]
-  },
-  '52006819': {
-    nombre: 'Juan Bonilla Ortega',
-    aka: 'Juan Bonilla',
-    edad_ref: '78 años (1983) / 79 años (1984) / 80 años (1985) / 88 años (1993)',
-    profesion: 'Agricultor en pequeño',
-    domicilio: 'Cantón Tierra Blanca / Jiquilisco, Usulután',
-    dui: '52006819',
-    nit: '—',
-    notas: 'Vendedor original de la mayoría de porciones del Lote #192 a Gabriel Bonilla Iraheta entre 1983 y 1993. No sabía firmar; dejó huella digital en todos sus actos.',
-    roles_doc: [
-      { yr:'1983', rol:'Vendedor', acto:'75033628 y 75033629' },
-      { yr:'1984', rol:'Vendedor', acto:'75033626' },
-      { yr:'1985', rol:'Vendedor', acto:'75033622' },
-      { yr:'1993', rol:'Vendedor', acto:'75033625' },
-    ]
-  },
-  '01289862-1': {
-    nombre: 'Noé Abrahán Hernández Durán',
-    aka: '',
-    edad_ref: '36 años (2007–2013) / 43 años (2014)',
-    profesion: 'Licenciado en Contaduría Pública',
-    domicilio: 'Soyapango, San Salvador (luego Santa Tecla, La Libertad)',
-    dui: '01289862-1',
-    nit: '1108-160671-101-0',
-    notas: 'Actúa en múltiples actos como copropietario del Solar 75033563. Adquiere la Matrícula 75033627 (70,000 m²) en 2014 y la revende en 2017 a través de su apoderada Zoila Solano de Bonilla.',
-    roles_doc: [
-      { yr:'2007', rol:'Comprador (33.33%)', acto:'Solar 75033563 (acto 1)' },
-      { yr:'2007', rol:'Comprador (33.33%)', acto:'Solar 75033563 (acto 2)' },
-      { yr:'2008', rol:'Vendedor (copropietario)', acto:'Solar 75033563' },
-      { yr:'2013', rol:'Comprador (50%)', acto:'Solar 75033563' },
-      { yr:'2014', rol:'Comprador', acto:'75033627 (USD 4,000)' },
-      { yr:'2017', rol:'Vendedor (vía apoderada Zoila)', acto:'75033627 → Claros Zamora (USD 60,000)' },
-    ]
-  },
-  '04032684-4': {
-    nombre: 'Rosa Lidya Bonilla de Barahona',
-    aka: 'Rosa Lidia Bonilla Solano / Rosa Lidya Bonilla Solano',
-    edad_ref: '— (nacida 28/11/1964)',
-    profesion: 'Empleada',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '04032684-4',
-    nit: '1108-281164-101-2',
-    notas: 'Hija menor legítima de Gabriel Bonilla Iraheta y Zoila Solano de Bonilla (representada por sus padres en 1977). Aparece como vendedora y compradora en la Matrícula 75076668 y participa en la venta del Solar 75033563.',
-    roles_doc: [
-      { yr:'1977', rol:'Compradora (menor, representada por padres)', acto:'Adjudicación ISTA 75033563' },
-      { yr:'2007', rol:'Compradora (50%) de 75076668', acto:'Segregación 75076668' },
-      { yr:'2007', rol:'Vendedora (33.33%)', acto:'Solar 75033563' },
-      { yr:'2015', rol:'Vendedora (50%)', acto:'75076668 → Romero Escobar' },
-      { yr:'2015', rol:'Compradora (50%)', acto:'75076668 ← Romero Escobar' },
-    ]
-  },
-  '04032606-4': {
-    nombre: 'Ricardo de Jesús Barahona Torrez',
-    aka: '',
-    edad_ref: '— (nacido 26/04/1959) / 55 años (2015)',
-    profesion: 'Empleado',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '04032606-4',
-    nit: '1118-260459-101-8',
-    notas: 'Esposo de Rosa Lidya Bonilla de Barahona. Copropietario al 50% de la Matrícula 75076668.',
-    roles_doc: [
-      { yr:'2007', rol:'Comprador (50%)', acto:'Segregación 75076668' },
-      { yr:'2015', rol:'Vendedor (50%)', acto:'75076668 → Romero Escobar' },
-      { yr:'2015', rol:'Comprador (50%)', acto:'75076668 ← Romero Escobar' },
-    ]
-  },
-  '03158676-2': {
-    nombre: 'José Edgar Romero Escobar',
-    aka: '',
-    edad_ref: '33 años (2015)',
-    profesion: 'Abogado y Notario',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '03158676-2',
-    nit: '1123-300481-106-9',
-    notas: 'Actuó como intermediario en la Matrícula 75076668: la compró a los Barahona y luego la revendió a los mismos en el mismo año (2015).',
-    roles_doc: [
-      { yr:'2015', rol:'Vendedor', acto:'75076668 → Barahona Torrez (USD 10,000)' },
-      { yr:'2015', rol:'Comprador', acto:'75076668 ← Barahona Torrez (USD 1,400)' },
-    ]
-  },
-  '01760555-2': {
-    nombre: 'José Rigoberto Claros Zamora',
-    aka: '',
-    edad_ref: '53 años (2017)',
-    profesion: 'Agricultor',
-    domicilio: 'Usulután',
-    dui: '01760555-2',
-    nit: '1119-200164-101-6',
-    notas: 'Compró la Matrícula 75033627 a Noé Hernández Durán en julio 2017 (USD 60,000) y en agosto 2017 la donó irrevocablemente a su hija María José Claros Claros.',
-    roles_doc: [
-      { yr:'2017', rol:'Comprador', acto:'75033627 ← Noé Hernández (USD 60,000)' },
-      { yr:'2017', rol:'Donante', acto:'75033627 → María José Claros Claros (hija)' },
-    ]
-  },
-  '05087405-1': {
-    nombre: 'María José Claros Claros',
-    aka: '',
-    edad_ref: '23 años (2017) / 26 años (2020)',
-    profesion: 'Comerciante',
-    domicilio: 'Usulután',
-    dui: '05087405-1',
-    nit: '1123-270494-101-3',
-    notas: 'Hija de José Rigoberto Claros Zamora. Recibió la Matrícula 75033627 (70,000 m²) en donación irrevocable en 2017 y la vendió en 2020 a Alejandro Escobar Iraheta por USD 60,000.',
-    roles_doc: [
-      { yr:'2017', rol:'Donataria (hija del donante)', acto:'75033627 ← Donación de Claros Zamora' },
-      { yr:'2020', rol:'Vendedora', acto:'75033627 → Alejandro Escobar Iraheta (USD 60,000)' },
-    ]
-  },
-  '02136583-9': {
-    nombre: 'Alejandro Escobar Iraheta',
-    aka: '',
-    edad_ref: '56 años (2020)',
-    profesion: 'Agricultor',
-    domicilio: 'San Francisco Javier, Usulután',
-    dui: '02136583-9',
-    nit: '1119-270264-101-0',
-    notas: 'Comprador final de la Matrícula 75033627 (70,000 m²) en 2020.',
-    roles_doc: [
-      { yr:'2020', rol:'Comprador', acto:'75033627 ← María José Claros (USD 60,000)' },
-    ]
-  },
-  '03577494-3': {
-    nombre: 'Blanca Mirian Cárcamo de Torres',
-    aka: '',
-    edad_ref: '60 años (2017) / 65 años (2023)',
-    profesion: 'Empleada',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '03577494-3',
-    nit: '11108-270857-101-4',
-    notas: 'Compradora en 2017 del lote segregado 75216784 junto con José Benjamín Torres (proindivisión 50%). Lo vendieron juntos en 2023 a María Marlene Torres Cárcamo.',
-    roles_doc: [
-      { yr:'2017', rol:'Compradora (50%)', acto:'Segregación 75216784' },
-      { yr:'2023', rol:'Vendedora (50%)', acto:'75216784 → María Marlene Torres Cárcamo (USD 10,000)' },
-    ]
-  },
-  '05690994-3': {
-    nombre: 'José Benjamín Torres',
-    aka: '',
-    edad_ref: '71 años (2017) / 76 años (2023)',
-    profesion: 'Empleado',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '05690994-3',
-    nit: '11118-131146-101-6',
-    notas: 'Copropietario al 50% de la Matrícula 75216784 junto con Blanca Mirian Cárcamo de Torres.',
-    roles_doc: [
-      { yr:'2017', rol:'Comprador (50%)', acto:'Segregación 75216784' },
-      { yr:'2023', rol:'Vendedor (50%)', acto:'75216784 → María Marlene Torres Cárcamo (USD 10,000)' },
-    ]
-  },
-  '06856061-6': {
-    nombre: 'María Marlene Torres Cárcamo',
-    aka: '',
-    edad_ref: '47 años (2023)',
-    profesion: 'Empleada',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '06856061-6',
-    nit: '—',
-    notas: 'Compradora final de la Matrícula 75216784 (635.87 m²) en 2023.',
-    roles_doc: [
-      { yr:'2023', rol:'Compradora', acto:'75216784 ← Cárcamo/Torres (USD 10,000)' },
-    ]
-  },
-  '04115498-1': {
-    nombre: 'José Mauricio Flores',
-    aka: '',
-    edad_ref: '53 años (2022)',
-    profesion: 'Empleado',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '04115498-1',
-    nit: '1108-100669-101-5',
-    notas: 'Comprador de la Matrícula 75244178 (362.61 m²), segregada de 75189732 en 2022.',
-    roles_doc: [
-      { yr:'2022', rol:'Comprador', acto:'Segregación 75244178 ← Ana Elsy Bonilla (USD 1,500)' },
-    ]
-  },
-  '04261780-1': {
-    nombre: 'Juan Francisco Bonilla Solano',
-    aka: '',
-    edad_ref: '40 años (2017)',
-    profesion: 'Empleado',
-    domicilio: 'Germantown, Maryland, EE.UU.',
-    dui: '04261780-1',
-    nit: '1108-220276-102-8',
-    notas: 'Comprador de la Matrícula 75211168 (9,526.83 m²) en 2017. Residente en EE.UU.; actuó a través de apoderada Glenda Carolina Lozano Segovia.',
-    roles_doc: [
-      { yr:'2017', rol:'Comprador (vía apoderada)', acto:'Segregación 75211168 ← Ana Elsy Bonilla (USD 1,400)' },
-    ]
-  },
-  '1293785-7': {
-    nombre: 'Glenda Carolina Lozano Segovia',
-    aka: '',
-    edad_ref: '33 años (2017)',
-    profesion: 'Estudiante',
-    domicilio: 'Usulután',
-    dui: '1293785-7',
-    nit: '1123-250683-105-9',
-    notas: 'Apoderada de Juan Francisco Bonilla Solano en la compra de la Matrícula 75211168 (2017).',
-    roles_doc: [
-      { yr:'2017', rol:'Apoderada del comprador', acto:'Segregación 75211168' },
-    ]
-  },
-  '00703647-6': {
-    nombre: 'José Gilberto Guzmán Bermúdez',
-    aka: '',
-    edad_ref: '64 años (2011)',
-    profesion: 'Agricultor en pequeño',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '00703647-6',
-    nit: '1115-180447-101-4',
-    notas: 'Comprador de 3,500 m² segregados de la Matrícula 75033622 en 2011.',
-    roles_doc: [
-      { yr:'2011', rol:'Comprador', acto:'Segregación de 75033622 (USD 1,400)' },
-    ]
-  },
-  '54714': {
-    nombre: 'José María Parada (hijo)',
-    aka: '',
-    edad_ref: '53 años (1986)',
-    profesion: 'Agricultor en pequeño',
-    domicilio: 'Santiago de María, Usulután',
-    dui: '54714',
-    nit: '—',
-    notas: 'Vendedor original de la Matrícula 75033627 (70,000 m²) a Gabriel Bonilla Iraheta en 1986.',
-    roles_doc: [
-      { yr:'1986', rol:'Vendedor', acto:'75033627 → Gabriel Bonilla Iraheta (40,000 colones)' },
-    ]
-  },
-  '52012108': {
-    nombre: 'Josefa Bonilla Iraheta',
-    aka: '',
-    edad_ref: '50 años (1983)',
-    profesion: 'Oficios domésticos',
-    domicilio: 'Jiquilisco, Usulután',
-    dui: '52012108',
-    nit: '—',
-    notas: 'Compradora de la Matrícula 75033629 (3,500 m²) en 1983. En 2005 ese inmueble pasó por herencia a Zoila Solano de Bonilla.',
-    roles_doc: [
-      { yr:'1983', rol:'Compradora', acto:'75033629 ← Juan Bonilla Ortega' },
-    ]
-  },
-  'ISTA': {
-    nombre: 'Instituto Salvadoreño de Transformación Agraria (ISTA)',
-    aka: 'Representado por Dra. Magda Marina Aguilar Guerrero',
-    edad_ref: '—',
-    profesion: 'Institución del Estado',
-    domicilio: 'San Salvador',
-    dui: '—',
-    nit: '—',
-    notas: 'Adjudicó el Solar "A" Manzana 21 (75033563) en 1977 a la familia Bonilla. Actuó a través del Presidente del ISTA, Coronel Efraín Tejada, representado por apoderada.',
-    roles_doc: [
-      { yr:'1977', rol:'Vendedora (institución)', acto:'Adjudicación 75033563 con promesa de venta' },
-    ]
-  },
-};
-
 function renderPersonas() {
   const container = document.getElementById('people-container');
-  const sorted = Object.values(personProfiles).sort((a,b)=>a.nombre.localeCompare(b.nombre));
-
-  sorted.forEach(person => {
+  [...allPersons].sort((a,b)=>a.nombre.localeCompare(b.nombre)).forEach(person => {
     const card = document.createElement('div');
     card.className = 'people-card';
-    const sells = person.roles_doc.filter(r=>r.rol.toLowerCase().includes('vendedor')||r.rol.toLowerCase().includes('tradente')||r.rol.toLowerCase().includes('donante'));
-    const buys  = person.roles_doc.filter(r=>r.rol.toLowerCase().includes('comprador')||r.rol.toLowerCase().includes('donatari')||r.rol.toLowerCase().includes('titular')||r.rol.toLowerCase().includes('heredera'));
-    const otros = person.roles_doc.filter(r=>r.rol.toLowerCase().includes('apoderada')||r.rol.toLowerCase().includes('apoderado'));
-
     card.innerHTML = `
       <h3>${person.nombre}</h3>
-      ${person.aka ? `<div class="id-line" style="color:var(--gold);margin-bottom:.2rem">También conocido/a como: ${person.aka}</div>` : ''}
+      ${person.aka ? `<div class="id-line" style="color:var(--gold);margin-bottom:.2rem">También: ${person.aka}</div>` : ''}
       <div class="id-line">
         ${person.dui!=='—'?`DUI: ${person.dui}`:''}
         ${person.nit!=='—'?` &nbsp;·&nbsp; NIT: ${person.nit}`:''}
@@ -1384,227 +1445,23 @@ function renderPersonas() {
           <div style="font-size:.71rem;display:flex;gap:.5rem;align-items:flex-start">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;background:var(--ink);color:var(--gold);padding:.1rem .35rem;border-radius:2px;white-space:nowrap;margin-top:1px">${r.yr}</span>
             <span><strong>${r.rol}</strong> — ${r.acto}</span>
-          </div>
-        `).join('')}
-      </div>
-    `;
+          </div>`).join('')}
+      </div>`;
     container.appendChild(card);
   });
 }
 
-// ─────────────────────────────────────────────
-//  RENDER INMUEBLES — con interconexión
-// ─────────────────────────────────────────────
-
-// Relaciones entre matrículas:
-// origen: de qué matrícula proviene (segregación / reunión)
-// segregadas: matrículas que se desprendieron de ésta
-// reunidas: matrículas que se fusionaron para formar ésta
-const props = {
-  '75033563-00000': {
-    nombre: 'Solar "A", Manzana 21',
-    tipo: 'independiente',
-    ubicacion: 'Polígono "Solares Tierra Blanca", Hacienda California, Jiquilisco',
-    area: '714 m²',
-    origen: null,
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'1977', tipo:'adj',  txt:'Adjudicación ISTA → Gabriel Bonilla Iraheta + familia' },
-      { yr:'2007', tipo:'vta',  txt:'Zoila Solano → Hernández Durán + Bonilla de Hdz. (66.67%)' },
-      { yr:'2007', tipo:'vta',  txt:'Rosa Lidya Bonilla → Hernández Durán + Bonilla de Hdz.' },
-      { yr:'2008', tipo:'vta',  txt:'Copropietarios → Zoila Solano de Bonilla (readquiere)' },
-      { yr:'2013', tipo:'vta',  txt:'Zoila Solano → Hernández Durán + Bonilla de Hdz. (50% c/u)' },
-    ]
-  },
-  '75033622-00000': {
-    nombre: 'Porción Lote #192 — 14,000 m²',
-    tipo: 'antecedente',
-    ubicacion: 'Pol. "B", Hacienda California, Cantón Tierra Blanca',
-    area: '14,000 m² (luego 10,500 m²)',
-    origen: null,
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'1985', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
-      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
-      { yr:'2011', tipo:'seg', txt:'Segregación 3,500 m² → José Gilberto Guzmán Bermúdez', mat_seg: null },
-      { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
-    ]
-  },
-  '75033625-00000': {
-    nombre: 'Porción Lote #192 — 15,721 m²',
-    tipo: 'antecedente',
-    ubicacion: 'Pol. "B", Hacienda California, Cantón Tierra Blanca',
-    area: '15,721 m²',
-    origen: null,
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'1993', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
-      { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
-    ]
-  },
-  '75033626-00000': {
-    nombre: 'Parte Hacienda California — 1,750 m²',
-    tipo: 'antecedente',
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
-    area: '1,750 m²',
-    origen: null,
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'1984', tipo:'vta', txt:'Juan Bonilla Ortega → Gabriel Bonilla Iraheta' },
-      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
-    ]
-  },
-  '75033627-00000': {
-    nombre: 'Predio Principal — 70,000 m²',
-    tipo: 'independiente',
-    ubicacion: 'Cantón Tierra Blanca, Hacienda California, Jiquilisco',
-    area: '70,000 m²',
-    origen: null,
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'1986', tipo:'vta', txt:'José María Parada → Gabriel Bonilla Iraheta (40,000 colones)' },
-      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
-      { yr:'2014', tipo:'vta', txt:'Zoila Solano → Noé Abrahán Hernández Durán (USD 4,000)' },
-      { yr:'2017', tipo:'vta', txt:'Noé Hernández (vía apoderada) → José Rigoberto Claros Zamora (USD 60,000)' },
-      { yr:'2017', tipo:'don', txt:'Claros Zamora dona a su hija María José Claros Claros (valor USD 50,000)' },
-      { yr:'2020', tipo:'vta', txt:'María José Claros Claros → Alejandro Escobar Iraheta (USD 60,000)' },
-    ]
-  },
-  '75033628-00000': {
-    nombre: 'Porción 1ª Lote #192 — 14,000 m²',
-    tipo: 'antecedente',
-    ubicacion: 'Pol. "B", Hacienda California, Jiquilisco',
-    area: '14,000 m²',
-    origen: null,
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'1983', tipo:'vta', txt:'Juan Bonilla → Gabriel Bonilla Iraheta' },
-      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
-      { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
-    ]
-  },
-  '75033629-00000': {
-    nombre: 'Porción 2ª Lote #192 — 3,500 m²',
-    tipo: 'antecedente',
-    ubicacion: 'Pol. "B", Hacienda California, Jiquilisco',
-    area: '3,500 m²',
-    origen: null,
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'1983', tipo:'vta', txt:'Juan Bonilla → Josefa Bonilla Iraheta' },
-      { yr:'2005', tipo:'her', txt:'Herencia → Zoila Solano de Bonilla' },
-      { yr:'2014', tipo:'reu', txt:'Se reúne y forma parte de Matrícula 75189732', mat_destino: '75189732-00000' },
-    ]
-  },
-  '75076668-00000': {
-    nombre: 'Lote segregado — 4,105.21 m²',
-    tipo: 'segregada',
-    ubicacion: 'Segregado de Lote #192, Pol. "B", Hacienda California',
-    area: '4,105.21 m²',
-    origen: null, // segregada de matrículas antecedentes (Zoila era titular por herencia de 75033622/75033625)
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'2007', tipo:'seg', txt:'Segregación y venta: Zoila Solano → Barahona Torrez (proindivisión 50%)' },
-      { yr:'2015', tipo:'vta', txt:'Barahona Torrez → José Edgar Romero Escobar (USD 1,400)' },
-      { yr:'2015', tipo:'vta', txt:'Romero Escobar → Barahona Torrez (USD 10,000)' },
-    ]
-  },
-  '75189732-00000': {
-    nombre: 'Predio Reunido — 39,615.79 m²',
-    tipo: 'reunion',
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca, Hacienda California',
-    area: '39,615.79 m² (se reduce con cada segregación)',
-    origen: null,
-    segregadas: ['75211168-00000','75216784-00000','75244178-00000'],
-    reunidas: ['75033622-00000','75033625-00000','75033628-00000','75033629-00000'],
-    historia: [
-      { yr:'2014', tipo:'reu', txt:'Reunión de matrículas → Ana Elsy Bonilla de Hernández (100%)' },
-      { yr:'2017', tipo:'seg', txt:'Segregación 9,526.83 m² → Juan Francisco Bonilla Solano (USD 1,400)', mat_seg:'75211168-00000' },
-      { yr:'2017', tipo:'seg', txt:'Segregación 635.87 m² → Blanca Mirian Cárcamo + José Benjamín Torres (USD 1,300)', mat_seg:'75216784-00000' },
-      { yr:'2022', tipo:'seg', txt:'Segregación 362.61 m² → José Mauricio Flores (USD 1,500)', mat_seg:'75244178-00000' },
-    ]
-  },
-  '75211168-00000': {
-    nombre: 'Segregado — 9,526.83 m²',
-    tipo: 'segregada',
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
-    area: '9,526.83 m²',
-    origen: '75189732-00000',
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'2017', tipo:'seg', txt:'Segregada de 75189732 → Juan Francisco Bonilla Solano (USD 1,400)' },
-    ]
-  },
-  '75216784-00000': {
-    nombre: 'Segregado — 635.87 m²',
-    tipo: 'segregada',
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
-    area: '635.87 m²',
-    origen: '75189732-00000',
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'2017', tipo:'seg', txt:'Segregada de 75189732 → Blanca Mirian Cárcamo + José Benjamín Torres (50% c/u, USD 1,300)' },
-      { yr:'2023', tipo:'vta', txt:'Cárcamo / Torres → María Marlene Torres Cárcamo (USD 10,000)' },
-    ]
-  },
-  '75244178-00000': {
-    nombre: 'Segregado — 362.61 m²',
-    tipo: 'segregada',
-    ubicacion: 'Lote #192, Pol. "B", Cantón Tierra Blanca',
-    area: '362.61 m²',
-    origen: '75189732-00000',
-    segregadas: [],
-    reunidas: [],
-    historia: [
-      { yr:'2022', tipo:'seg', txt:'Segregada de 75189732 → José Mauricio Flores (USD 1,500)' },
-    ]
-  },
-};
-
-// colores por tipo de evento en historial
-const histColor = {
-  vta: '#8b3a0f', seg: '#8a4a9b', reu: '#4a6fa5',
-  her: '#c49a2a', don: '#2d5a27', adj: '#4a7a8a'
-};
-const histLabel = {
-  vta:'Compraventa', seg:'Segregación', reu:'Reunión',
-  her:'Herencia', don:'Donación', adj:'Adjudicación'
-};
-
-// badge de tipo de inmueble
-const tipoBadge = {
-  independiente: { label:'Independiente', color:'#4a7a8a' },
-  antecedente:   { label:'Antecedente (reunida)', color:'#c49a2a' },
-  segregada:     { label:'Segregada', color:'#8a4a9b' },
-  reunion:       { label:'Producto de Reunión', color:'#4a6fa5' },
-};
-
-// navigateToProp definida al final del script
-
 function renderInmuebles() {
   const container = document.getElementById('prop-container');
-
-  Object.entries(props).forEach(([mat, p]) => {
+  Object.entries(propById).forEach(([matId, p]) => {
     const card = document.createElement('div');
     card.className = 'prop-card';
-    card.id = 'prop-' + mat;
-
+    card.id = 'prop-' + matId;
     const tb = tipoBadge[p.tipo] || tipoBadge.independiente;
 
-    // Construir sección de origen (viene de)
     let origenHTML = '';
     if (p.origen) {
-      const o = props[p.origen];
+      const o = propById[p.origen];
       origenHTML = `
         <div class="prop-link-section">
           <div class="prop-link-label">⬆ Segregada de</div>
@@ -1614,7 +1471,6 @@ function renderInmuebles() {
         </div>`;
     }
 
-    // Construir sección de matrículas reunidas (viene de)
     let reuHTML = '';
     if (p.reunidas && p.reunidas.length) {
       reuHTML = `
@@ -1622,16 +1478,13 @@ function renderInmuebles() {
           <div class="prop-link-label">🔗 Formada por reunión de</div>
           <div class="mat-link-group">
             ${p.reunidas.map(m => {
-              const r = props[m];
-              return `<button class="mat-link mat-link-sm" onclick="navigateToProp('${m}')">
-                📋 ${m}<br><small>${r ? r.nombre : ''}</small>
-              </button>`;
+              const r = propById[m];
+              return `<button class="mat-link mat-link-sm" onclick="navigateToProp('${m}')">📋 ${m}<br><small>${r ? r.nombre : ''}</small></button>`;
             }).join('')}
           </div>
         </div>`;
     }
 
-    // Construir sección de segregaciones (sale de)
     let segHTML = '';
     if (p.segregadas && p.segregadas.length) {
       segHTML = `
@@ -1639,24 +1492,17 @@ function renderInmuebles() {
           <div class="prop-link-label">⬇ Matrículas segregadas</div>
           <div class="mat-link-group">
             ${p.segregadas.map(m => {
-              const s = props[m];
-              return `<button class="mat-link mat-link-seg" onclick="navigateToProp('${m}')">
-                📋 ${m}<br><small>${s ? s.nombre : ''}</small>
-              </button>`;
+              const s = propById[m];
+              return `<button class="mat-link mat-link-seg" onclick="navigateToProp('${m}')">📋 ${m}<br><small>${s ? s.nombre : ''}</small></button>`;
             }).join('')}
           </div>
         </div>`;
     }
 
-    // Historial con links en entradas que tienen mat_destino o mat_seg
     const histHTML = p.historia.map(h => {
       let extra = '';
-      if (h.mat_destino) {
-        extra = `<button class="mat-link-inline" onclick="navigateToProp('${h.mat_destino}')">→ ${h.mat_destino}</button>`;
-      }
-      if (h.mat_seg) {
-        extra = `<button class="mat-link-inline" onclick="navigateToProp('${h.mat_seg}')">→ ${h.mat_seg}</button>`;
-      }
+      if (h.mat_destino) extra = `<button class="mat-link-inline" onclick="navigateToProp('${h.mat_destino}')">→ ${h.mat_destino}</button>`;
+      if (h.mat_seg)     extra = `<button class="mat-link-inline" onclick="navigateToProp('${h.mat_seg}')">→ ${h.mat_seg}</button>`;
       return `
         <div class="hist-step">
           <span class="yr">${h.yr}</span>
@@ -1667,27 +1513,25 @@ function renderInmuebles() {
 
     card.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.3rem;flex-wrap:wrap;gap:.4rem">
-        <div class="mat-num">MATRÍCULA ${mat}</div>
+        <div class="mat-num">MATRÍCULA ${matId}</div>
         <span class="tipo-badge" style="background:${tb.color}">${tb.label}</span>
       </div>
       <h3>${p.nombre}</h3>
       <div class="prop-stat"><span class="lbl">Área</span><span>${p.area}</span></div>
       <div class="prop-stat"><span class="lbl">Ubicación</span><span style="font-size:.72rem;text-align:right;max-width:60%">${p.ubicacion}</span></div>
-      ${origenHTML}
-      ${reuHTML}
-      ${segHTML}
+      ${origenHTML}${reuHTML}${segHTML}
       <div class="prop-history">
         <div class="prop-history-title">Historial de Traspasos</div>
         ${histHTML}
-      </div>
-    `;
+      </div>`;
     container.appendChild(card);
   });
 }
 
-// ─────────────────────────────────────────────
-//  NAVIGATION
-// ─────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════
+//  SECCIÓN 6 — NAVEGACIÓN
+// ═══════════════════════════════════════════════════════════════════════
+
 const tabNames = ['timeline','inmuebles','matrix','personas'];
 
 function showView(name, el) {
@@ -1700,7 +1544,6 @@ function showView(name, el) {
   else if (el) el.classList.add('active');
 }
 
-// navigateToProp — cambia a vista inmuebles y hace scroll+highlight
 function navigateToProp(mat) {
   showView('inmuebles');
   setTimeout(() => {
@@ -1713,7 +1556,7 @@ function navigateToProp(mat) {
   }, 90);
 }
 
-// INIT
+// ── INIT ────────────────────────────────────────────────────────────
 renderTimeline();
 renderMatrix();
 renderPersonas();
